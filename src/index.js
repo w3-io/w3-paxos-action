@@ -1,3 +1,4 @@
+const { setJsonOutput, handleError } = require("@w3-io/action-core");
 const core = require("@actions/core");
 
 async function run() {
@@ -364,7 +365,7 @@ async function run() {
         throw new Error(`Unknown command: ${command}`);
     }
 
-    core.setOutput("result", JSON.stringify(result));
+    setJsonOutput("result", result);
   } catch (error) {
     core.setFailed(error.message);
   }
