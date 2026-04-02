@@ -1,0 +1,81 @@
+name: 'W3 Paxos Action'
+description: 'Paxos institutional crypto — identity, custody, trading, stablecoins, settlement, orchestration, rewards, and tax for W3 workflows'
+author: 'w3-io'
+
+inputs:
+  command:
+    description: '109 commands across identity, accounts, profiles, crypto deposits/withdrawals, fiat transfers, stablecoin conversions, trading, market data, orchestration, settlement, rewards, and more'
+    required: true
+  client-id:
+    description: 'Paxos OAuth2 Client ID'
+    required: true
+  client-secret:
+    description: 'Paxos OAuth2 Client Secret'
+    required: true
+  api-url:
+    description: 'Paxos API base URL'
+    required: false
+    default: 'https://api.sandbox.paxos.com/v2'
+  oauth-url:
+    description: 'Paxos OAuth token URL'
+    required: false
+    default: 'https://oauth.sandbox.paxos.com/oauth2/token'
+  scope:
+    description: 'OAuth2 scopes (space-separated)'
+    required: false
+  body:
+    description: 'Request body as JSON'
+    required: false
+  id:
+    description: 'Resource ID (generic)'
+    required: false
+  profile-id:
+    description: 'Profile ID'
+    required: false
+  identity-id:
+    description: 'Identity ID'
+    required: false
+  account-id:
+    description: 'Account ID'
+    required: false
+  order-id:
+    description: 'Order ID'
+    required: false
+  quote-id:
+    description: 'Quote ID'
+    required: false
+  market:
+    description: 'Market pair (e.g. BTC_USD, ETH_USD)'
+    required: false
+  asset:
+    description: 'Asset code (e.g. USD, BTC, ETH, PYUSD, USDP)'
+    required: false
+  rule-id:
+    description: 'Orchestration rule ID'
+    required: false
+  member-id:
+    description: 'Member ID'
+    required: false
+  transaction-id:
+    description: 'Settlement transaction ID'
+    required: false
+  ref-id:
+    description: 'External reference ID'
+    required: false
+  limit:
+    description: 'Page size'
+    required: false
+  cursor:
+    description: 'Pagination cursor'
+    required: false
+  status:
+    description: 'Status filter'
+    required: false
+
+outputs:
+  result:
+    description: 'Command result as JSON string'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
