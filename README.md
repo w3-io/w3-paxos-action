@@ -19,18 +19,18 @@ See [docs/guide.md](docs/guide.md) for the full command reference.
 
 ## Inputs
 
-| Input | Required | Default | Description |
-|-------|----------|---------|-------------|
-| `command` | Yes | — | Operation to perform |
-| `api-key` | Yes | — | Paxos API key |
-| `api-url` | No | `api.paxos.com` | API endpoint (sandbox: `api.sandbox.paxos.com`) |
-| `body` | No | — | JSON request body |
-| (others) | No | — | Command-specific inputs (see guide) |
+| Input     | Required | Default         | Description                                     |
+| --------- | -------- | --------------- | ----------------------------------------------- |
+| `command` | Yes      | —               | Operation to perform                            |
+| `api-key` | Yes      | —               | Paxos API key                                   |
+| `api-url` | No       | `api.paxos.com` | API endpoint (sandbox: `api.sandbox.paxos.com`) |
+| `body`    | No       | —               | JSON request body                               |
+| (others)  | No       | —               | Command-specific inputs (see guide)             |
 
 ## Outputs
 
-| Output | Description |
-|--------|-------------|
+| Output   | Description                  |
+| -------- | ---------------------------- |
 | `result` | JSON result of the operation |
 
 ## Authentication
