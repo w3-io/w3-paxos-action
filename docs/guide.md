@@ -14,28 +14,28 @@ Paxos provides regulated crypto brokerage, stablecoin issuance (USDP, PYUSD), an
 
 ## Command Categories
 
-| Category | Commands | Description |
-|----------|----------|-------------|
-| Accounts | 6 | Account and member management |
-| Profiles | 6 | Trading profiles and balances |
-| Orders | 5 | Market/limit orders on crypto pairs |
-| Conversions | 3 | Crypto-to-crypto conversions |
-| Transfers | 7 | Internal, crypto, and fiat transfers |
-| Settlements | 4 | Institutional settlement workflows |
-| Identity | 5 | KYC/KYB identity verification |
-| Fiat | 6 | Bank accounts and fiat deposits/withdrawals |
-| Crypto | 6 | Deposit addresses, withdrawals, destination addresses |
-| Stablecoins | 5 | USDP/PYUSD issuance quotes and execution |
-| Orchestration | 4 | Automated trading rules |
-| Monitoring | 3 | Address monitoring for compliance |
-| Rewards | 3 | Staking reward addresses |
-| Sandbox | 3 | Test environment utilities |
+| Category      | Commands | Description                                           |
+| ------------- | -------- | ----------------------------------------------------- |
+| Accounts      | 6        | Account and member management                         |
+| Profiles      | 6        | Trading profiles and balances                         |
+| Orders        | 5        | Market/limit orders on crypto pairs                   |
+| Conversions   | 3        | Crypto-to-crypto conversions                          |
+| Transfers     | 7        | Internal, crypto, and fiat transfers                  |
+| Settlements   | 4        | Institutional settlement workflows                    |
+| Identity      | 5        | KYC/KYB identity verification                         |
+| Fiat          | 6        | Bank accounts and fiat deposits/withdrawals           |
+| Crypto        | 6        | Deposit addresses, withdrawals, destination addresses |
+| Stablecoins   | 5        | USDP/PYUSD issuance quotes and execution              |
+| Orchestration | 4        | Automated trading rules                               |
+| Monitoring    | 3        | Address monitoring for compliance                     |
+| Rewards       | 3        | Staking reward addresses                              |
+| Sandbox       | 3        | Test environment utilities                            |
 
 ## Authentication
 
 ```yaml
 api-key: ${{ secrets.PAXOS_API_KEY }}
-api-url: api.sandbox.paxos.com  # for testing
+api-url: api.sandbox.paxos.com # for testing
 ```
 
 Production: `api.paxos.com` (default). Sandbox: `api.sandbox.paxos.com`.

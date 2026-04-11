@@ -1,10 +1,9 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
+import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
+/******/ var __webpack_modules__ = ({
 
 /***/ 4914:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -107,7 +106,6 @@ function escapeProperty(s) {
 /***/ 7484:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -458,7 +456,6 @@ exports.platform = __importStar(__nccwpck_require__(8968));
 /***/ 4753:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 // For internal use, subject to change.
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -527,7 +524,6 @@ exports.prepareKeyValueMessage = prepareKeyValueMessage;
 /***/ 5306:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -611,7 +607,6 @@ exports.OidcClient = OidcClient;
 /***/ 1976:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -680,7 +675,6 @@ exports.toPlatformPath = toPlatformPath;
 /***/ 8968:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -781,7 +775,6 @@ exports.getDetails = getDetails;
 /***/ 1847:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -1071,7 +1064,6 @@ exports.summary = _summary;
 /***/ 302:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -1118,7 +1110,6 @@ exports.toCommandProperties = toCommandProperties;
 /***/ 5236:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1228,7 +1219,6 @@ exports.getExecOutput = getExecOutput;
 /***/ 6665:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1853,7 +1843,6 @@ class ExecState extends events.EventEmitter {
 /***/ 4552:
 /***/ (function(__unused_webpack_module, exports) {
 
-"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -1941,7 +1930,6 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 /***/ 4844:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -2600,7 +2588,6 @@ const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => ((c[k.toLowerCa
 /***/ 4988:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.checkBypass = exports.getProxyUrl = void 0;
@@ -2702,7 +2689,6 @@ class DecodedURL extends URL {
 /***/ 5207:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -2892,7 +2878,6 @@ exports.getCmdPath = getCmdPath;
 /***/ 4994:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
-"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -3206,7 +3191,6 @@ module.exports = __nccwpck_require__(218);
 /***/ 218:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 var net = __nccwpck_require__(9278);
@@ -3478,7 +3462,6 @@ exports.debug = debug; // for test
 /***/ 6752:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Client = __nccwpck_require__(6197)
@@ -3653,7 +3636,6 @@ module.exports.mockErrors = mockErrors
 /***/ 9965:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { InvalidArgumentError } = __nccwpck_require__(8707)
@@ -3870,7 +3852,6 @@ module.exports = {
 /***/ 4660:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { AsyncResource } = __nccwpck_require__(290)
@@ -3982,7 +3963,6 @@ module.exports = connect
 /***/ 6862:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -4239,7 +4219,6 @@ module.exports = pipeline
 /***/ 4043:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Readable = __nccwpck_require__(9927)
@@ -4427,7 +4406,6 @@ module.exports.RequestHandler = RequestHandler
 /***/ 3560:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { finished, PassThrough } = __nccwpck_require__(2203)
@@ -4655,7 +4633,6 @@ module.exports = stream
 /***/ 1882:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { InvalidArgumentError, RequestAbortedError, SocketError } = __nccwpck_require__(8707)
@@ -4768,7 +4745,6 @@ module.exports = upgrade
 /***/ 6615:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 module.exports.request = __nccwpck_require__(4043)
@@ -4783,7 +4759,6 @@ module.exports.connect = __nccwpck_require__(4660)
 /***/ 9927:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // Ported from https://github.com/nodejs/undici/pull/907
 
 
@@ -5166,7 +5141,6 @@ module.exports = { getResolveErrorBodyCallback }
 /***/ 1093:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -5364,7 +5338,6 @@ module.exports = BalancedPool
 /***/ 479:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kConstruct } = __nccwpck_require__(296)
@@ -6210,7 +6183,6 @@ module.exports = {
 /***/ 4738:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kConstruct } = __nccwpck_require__(296)
@@ -6362,7 +6334,6 @@ module.exports = {
 /***/ 296:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 module.exports = {
@@ -6375,7 +6346,6 @@ module.exports = {
 /***/ 3993:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const assert = __nccwpck_require__(2613)
@@ -6432,7 +6402,6 @@ module.exports = {
 /***/ 6197:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // @ts-check
 
 
@@ -8723,7 +8692,6 @@ module.exports = Client
 /***/ 3194:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore file: only for Node 12 */
@@ -8779,7 +8747,6 @@ module.exports = function () {
 /***/ 9237:
 /***/ ((module) => {
 
-"use strict";
 
 
 // https://wicg.github.io/cookie-store/#cookie-maximum-attribute-value-size
@@ -8799,7 +8766,6 @@ module.exports = {
 /***/ 3168:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { parseSetCookie } = __nccwpck_require__(8915)
@@ -8990,7 +8956,6 @@ module.exports = {
 /***/ 8915:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { maxNameValuePairSize, maxAttributeValueSize } = __nccwpck_require__(9237)
@@ -9315,7 +9280,6 @@ module.exports = {
 /***/ 3834:
 /***/ ((module) => {
 
-"use strict";
 
 
 /**
@@ -9597,7 +9561,6 @@ module.exports = {
 /***/ 9136:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const net = __nccwpck_require__(9278)
@@ -9794,7 +9757,6 @@ module.exports = buildConnector
 /***/ 735:
 /***/ ((module) => {
 
-"use strict";
 
 
 /** @type {Record<string, string | undefined>} */
@@ -9920,7 +9882,6 @@ module.exports = {
 /***/ 8707:
 /***/ ((module) => {
 
-"use strict";
 
 
 class UndiciError extends Error {
@@ -10158,7 +10119,6 @@ module.exports = {
 /***/ 4655:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -10735,7 +10695,6 @@ module.exports = {
 /***/ 3440:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const assert = __nccwpck_require__(2613)
@@ -11265,7 +11224,6 @@ module.exports = {
 /***/ 1:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Dispatcher = __nccwpck_require__(992)
@@ -11465,7 +11423,6 @@ module.exports = DispatcherBase
 /***/ 992:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const EventEmitter = __nccwpck_require__(4434)
@@ -11492,7 +11449,6 @@ module.exports = Dispatcher
 /***/ 8923:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Busboy = __nccwpck_require__(9581)
@@ -12113,7 +12069,6 @@ module.exports = {
 /***/ 7326:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { MessageChannel, receiveMessageOnPort } = __nccwpck_require__(8167)
@@ -12906,7 +12861,6 @@ module.exports = {
 /***/ 3041:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Blob, File: NativeFile } = __nccwpck_require__(181)
@@ -13258,7 +13212,6 @@ module.exports = { File, FileLike, isFileLike }
 /***/ 3073:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { isBlobLike, toUSVString, makeIterator } = __nccwpck_require__(5523)
@@ -13531,7 +13484,6 @@ module.exports = { FormData }
 /***/ 5628:
 /***/ ((module) => {
 
-"use strict";
 
 
 // In case of breaking changes, increase the version
@@ -13579,7 +13531,6 @@ module.exports = {
 /***/ 6349:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // https://github.com/Ethan-Arrowood/undici-fetch
 
 
@@ -14180,7 +14131,6 @@ module.exports = {
 /***/ 2315:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 // https://github.com/Ethan-Arrowood/undici-fetch
 
 
@@ -16336,7 +16286,6 @@ module.exports = {
 /***/ 5194:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /* globals AbortController */
 
 
@@ -17290,7 +17239,6 @@ module.exports = { Request, makeRequest }
 /***/ 8676:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Headers, HeadersList, fill } = __nccwpck_require__(6349)
@@ -17869,7 +17817,6 @@ module.exports = {
 /***/ 9710:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -17887,7 +17834,6 @@ module.exports = {
 /***/ 5523:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { redirectStatusSet, referrerPolicySet: referrerPolicyTokens, badPortsSet } = __nccwpck_require__(7326)
@@ -19039,7 +18985,6 @@ module.exports = {
 /***/ 4222:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { types } = __nccwpck_require__(9023)
@@ -19693,7 +19638,6 @@ module.exports = {
 /***/ 396:
 /***/ ((module) => {
 
-"use strict";
 
 
 /**
@@ -19991,7 +19935,6 @@ module.exports = {
 /***/ 2160:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -20343,7 +20286,6 @@ module.exports = {
 /***/ 5976:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { webidl } = __nccwpck_require__(4222)
@@ -20429,7 +20371,6 @@ module.exports = {
 /***/ 6812:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -20447,7 +20388,6 @@ module.exports = {
 /***/ 165:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -20847,7 +20787,6 @@ module.exports = {
 /***/ 2581:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 // We include a version number for the Dispatcher API. In case of breaking changes,
@@ -20887,7 +20826,6 @@ module.exports = {
 /***/ 8840:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = class DecoratorHandler {
@@ -20930,7 +20868,6 @@ module.exports = class DecoratorHandler {
 /***/ 8299:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const util = __nccwpck_require__(3440)
@@ -21502,7 +21439,6 @@ module.exports = RetryHandler
 /***/ 4415:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const RedirectHandler = __nccwpck_require__(8299)
@@ -21531,7 +21467,6 @@ module.exports = createRedirectInterceptor
 /***/ 2824:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SPECIAL_HEADERS = exports.HEADER_STATE = exports.MINOR = exports.MAJOR = exports.CONNECTION_TOKEN_CHARS = exports.HEADER_CHARS = exports.TOKEN = exports.STRICT_TOKEN = exports.HEX = exports.URL_CHAR = exports.STRICT_URL_CHAR = exports.USERINFO_CHARS = exports.MARK = exports.ALPHANUM = exports.NUM = exports.HEX_MAP = exports.NUM_MAP = exports.ALPHA = exports.FINISH = exports.H_METHOD_MAP = exports.METHOD_MAP = exports.METHODS_RTSP = exports.METHODS_ICE = exports.METHODS_HTTP = exports.METHODS = exports.LENIENT_FLAGS = exports.FLAGS = exports.TYPE = exports.ERROR = void 0;
@@ -21832,7 +21767,6 @@ module.exports = 'AGFzbQEAAAABMAhgAX8Bf2ADf39/AX9gBH9/f38Bf2AAAGADf39/AGABfwBgAn
 /***/ 172:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.enumToMap = void 0;
@@ -21854,7 +21788,6 @@ exports.enumToMap = enumToMap;
 /***/ 7501:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kClients } = __nccwpck_require__(6443)
@@ -22033,7 +21966,6 @@ module.exports = MockAgent
 /***/ 7365:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { promisify } = __nccwpck_require__(9023)
@@ -22100,7 +22032,6 @@ module.exports = MockClient
 /***/ 2429:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { UndiciError } = __nccwpck_require__(8707)
@@ -22125,7 +22056,6 @@ module.exports = {
 /***/ 1511:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { getResponseData, buildKey, addMockDispatch } = __nccwpck_require__(3397)
@@ -22339,7 +22269,6 @@ module.exports.MockScope = MockScope
 /***/ 4004:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { promisify } = __nccwpck_require__(9023)
@@ -22406,7 +22335,6 @@ module.exports = MockPool
 /***/ 1117:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -22437,7 +22365,6 @@ module.exports = {
 /***/ 3397:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { MockNotMatchedError } = __nccwpck_require__(2429)
@@ -22796,7 +22723,6 @@ module.exports = {
 /***/ 6142:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Transform } = __nccwpck_require__(2203)
@@ -22844,7 +22770,6 @@ module.exports = class PendingInterceptorsFormatter {
 /***/ 1529:
 /***/ ((module) => {
 
-"use strict";
 
 
 const singulars = {
@@ -22881,7 +22806,6 @@ module.exports = class Pluralizer {
 /***/ 4869:
 /***/ ((module) => {
 
-"use strict";
 /* eslint-disable */
 
 
@@ -23006,7 +22930,6 @@ module.exports = class FixedQueue {
 /***/ 8640:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const DispatcherBase = __nccwpck_require__(1)
@@ -23249,7 +23172,6 @@ module.exports = PoolStats
 /***/ 5076:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const {
@@ -23365,7 +23287,6 @@ module.exports = Pool
 /***/ 2720:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kProxy, kClose, kDestroy, kInterceptors } = __nccwpck_require__(6443)
@@ -23562,7 +23483,6 @@ module.exports = ProxyAgent
 /***/ 8804:
 /***/ ((module) => {
 
-"use strict";
 
 
 let fastNow = Date.now()
@@ -23667,7 +23587,6 @@ module.exports = {
 /***/ 8550:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const diagnosticsChannel = __nccwpck_require__(1637)
@@ -23966,7 +23885,6 @@ module.exports = {
 /***/ 5913:
 /***/ ((module) => {
 
-"use strict";
 
 
 // This is a Globally Unique Identifier unique used
@@ -24025,7 +23943,6 @@ module.exports = {
 /***/ 6255:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { webidl } = __nccwpck_require__(4222)
@@ -24336,7 +24253,6 @@ module.exports = {
 /***/ 1237:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { maxUnsigned16Bit } = __nccwpck_require__(5913)
@@ -24417,7 +24333,6 @@ module.exports = {
 /***/ 3171:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { Writable } = __nccwpck_require__(2203)
@@ -24769,7 +24684,6 @@ module.exports = {
 /***/ 2933:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = {
@@ -24789,7 +24703,6 @@ module.exports = {
 /***/ 3574:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { kReadyState, kController, kResponse, kBinaryType, kWebSocketURL } = __nccwpck_require__(2933)
@@ -24997,7 +24910,6 @@ module.exports = {
 /***/ 5171:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const { webidl } = __nccwpck_require__(4222)
@@ -25646,263 +25558,230 @@ module.exports = {
 /***/ 2613:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("assert");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("assert");
 
 /***/ }),
 
 /***/ 290:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("async_hooks");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("async_hooks");
 
 /***/ }),
 
 /***/ 181:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("buffer");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("buffer");
 
 /***/ }),
 
 /***/ 5317:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("child_process");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("child_process");
 
 /***/ }),
 
 /***/ 4236:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("console");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("console");
 
 /***/ }),
 
 /***/ 6982:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("crypto");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("crypto");
 
 /***/ }),
 
 /***/ 1637:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("diagnostics_channel");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("diagnostics_channel");
 
 /***/ }),
 
 /***/ 4434:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("events");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("events");
 
 /***/ }),
 
 /***/ 9896:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("fs");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
 
 /***/ }),
 
 /***/ 8611:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("http");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("http");
 
 /***/ }),
 
 /***/ 5675:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("http2");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("http2");
 
 /***/ }),
 
 /***/ 5692:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("https");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("https");
 
 /***/ }),
 
 /***/ 9278:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("net");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("net");
 
 /***/ }),
 
 /***/ 7598:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:crypto");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:crypto");
 
 /***/ }),
 
 /***/ 8474:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:events");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:events");
 
 /***/ }),
 
 /***/ 7067:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:http");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:http");
 
 /***/ }),
 
 /***/ 7075:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:stream");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:stream");
 
 /***/ }),
 
 /***/ 7975:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("node:util");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:util");
 
 /***/ }),
 
 /***/ 857:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("os");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 
 /***/ }),
 
 /***/ 6928:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("path");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("path");
 
 /***/ }),
 
 /***/ 2987:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("perf_hooks");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("perf_hooks");
 
 /***/ }),
 
 /***/ 3480:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("querystring");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("querystring");
 
 /***/ }),
 
 /***/ 2203:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("stream");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("stream");
 
 /***/ }),
 
 /***/ 3774:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("stream/web");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("stream/web");
 
 /***/ }),
 
 /***/ 3193:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("string_decoder");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("string_decoder");
 
 /***/ }),
 
 /***/ 3557:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("timers");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("timers");
 
 /***/ }),
 
 /***/ 4756:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("tls");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("tls");
 
 /***/ }),
 
 /***/ 7016:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("url");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("url");
 
 /***/ }),
 
 /***/ 9023:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("util");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 
 /***/ }),
 
 /***/ 8253:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("util/types");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util/types");
 
 /***/ }),
 
 /***/ 8167:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("worker_threads");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("worker_threads");
 
 /***/ }),
 
 /***/ 3106:
 /***/ ((module) => {
 
-"use strict";
-module.exports = require("zlib");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("zlib");
 
 /***/ }),
 
 /***/ 7182:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const WritableStream = (__nccwpck_require__(7075).Writable)
@@ -26123,7 +26002,6 @@ module.exports = Dicer
 /***/ 2271:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const EventEmitter = (__nccwpck_require__(8474).EventEmitter)
@@ -26231,7 +26109,6 @@ module.exports = HeaderParser
 /***/ 612:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const inherits = (__nccwpck_require__(7975).inherits)
@@ -26252,7 +26129,6 @@ module.exports = PartStream
 /***/ 4136:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 /**
@@ -26488,7 +26364,6 @@ module.exports = SBMH
 /***/ 9581:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const WritableStream = (__nccwpck_require__(7075).Writable)
@@ -26581,7 +26456,6 @@ module.exports.Dicer = Dicer
 /***/ 1192:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 // TODO:
@@ -26895,7 +26769,6 @@ module.exports = Multipart
 /***/ 855:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 
 
 const Decoder = __nccwpck_require__(1496)
@@ -27093,7 +26966,6 @@ module.exports = UrlEncoded
 /***/ 1496:
 /***/ ((module) => {
 
-"use strict";
 
 
 const RE_PLUS = /\+/g
@@ -27155,7 +27027,6 @@ module.exports = Decoder
 /***/ 692:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function basename (path) {
@@ -27177,7 +27048,6 @@ module.exports = function basename (path) {
 /***/ 2747:
 /***/ (function(module) {
 
-"use strict";
 
 
 // Node has always utf-8
@@ -27299,7 +27169,6 @@ module.exports = decodeText
 /***/ 2393:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function getLimit (limits, name, defaultLimit) {
@@ -27323,7 +27192,6 @@ module.exports = function getLimit (limits, name, defaultLimit) {
 /***/ 8929:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /* eslint-disable object-property-newline */
 
 
@@ -27522,71 +27390,131 @@ function parseParams (str) {
 module.exports = parseParams
 
 
-/***/ }),
+/***/ })
 
-/***/ 9877:
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
-
-"use strict";
-// ESM COMPAT FLAG
-__nccwpck_require__.r(__webpack_exports__);
-
-// EXPORTS
-__nccwpck_require__.d(__webpack_exports__, {
-  W3ActionError: () => (/* reexport */ W3ActionError),
-  bridge: () => (/* reexport */ bridge),
-  cleanupMock: () => (/* reexport */ cleanupMock),
-  createCommandRouter: () => (/* reexport */ createCommandRouter),
-  createMockCore: () => (/* reexport */ createMockCore),
-  expectFailed: () => (/* reexport */ expectFailed),
-  expectOutput: () => (/* reexport */ expectOutput),
-  expectSuccess: () => (/* reexport */ expectSuccess),
-  getOptionalInput: () => (/* reexport */ getOptionalInput),
-  getOutput: () => (/* reexport */ getOutput),
-  handleError: () => (/* reexport */ handleError),
-  mockAction: () => (/* reexport */ mockAction),
-  parseJsonInput: () => (/* reexport */ parseJsonInput),
-  request: () => (/* reexport */ request),
-  requireInput: () => (/* reexport */ requireInput),
-  setJsonOutput: () => (/* reexport */ setJsonOutput),
-  setOutputs: () => (/* reexport */ setOutputs)
-});
+/******/ });
+/************************************************************************/
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/ 
+/******/ // The require function
+/******/ function __nccwpck_require__(moduleId) {
+/******/ 	// Check if module is in cache
+/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 	if (cachedModule !== undefined) {
+/******/ 		return cachedModule.exports;
+/******/ 	}
+/******/ 	// Create a new module (and put it into the cache)
+/******/ 	var module = __webpack_module_cache__[moduleId] = {
+/******/ 		// no module.id needed
+/******/ 		// no module.loaded needed
+/******/ 		exports: {}
+/******/ 	};
+/******/ 
+/******/ 	// Execute the module function
+/******/ 	var threw = true;
+/******/ 	try {
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 		threw = false;
+/******/ 	} finally {
+/******/ 		if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 	}
+/******/ 
+/******/ 	// Return the exports of the module
+/******/ 	return module.exports;
+/******/ }
+/******/ 
+/************************************************************************/
+/******/ /* webpack/runtime/create fake namespace object */
+/******/ (() => {
+/******/ 	var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
+/******/ 	var leafPrototypes;
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 16: return value when it's Promise-like
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__nccwpck_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = this(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if(typeof value === 'object' && value) {
+/******/ 			if((mode & 4) && value.__esModule) return value;
+/******/ 			if((mode & 16) && typeof value.then === 'function') return value;
+/******/ 		}
+/******/ 		var ns = Object.create(null);
+/******/ 		__nccwpck_require__.r(ns);
+/******/ 		var def = {};
+/******/ 		leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
+/******/ 		for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
+/******/ 			Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
+/******/ 		}
+/******/ 		def['default'] = () => (value);
+/******/ 		__nccwpck_require__.d(ns, def);
+/******/ 		return ns;
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/define property getters */
+/******/ (() => {
+/******/ 	// define getter functions for harmony exports
+/******/ 	__nccwpck_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 			}
+/******/ 		}
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+/******/ 	__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/make namespace object */
+/******/ (() => {
+/******/ 	// define __esModule on exports
+/******/ 	__nccwpck_require__.r = (exports) => {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/compat */
+/******/ 
+/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
+/************************************************************************/
+var __webpack_exports__ = {};
 
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
-var core = __nccwpck_require__(7484);
+var lib_core = __nccwpck_require__(7484);
 ;// CONCATENATED MODULE: ./node_modules/@w3-io/action-core/dist/input.js
 
 /**
- * Parse a JSON input. Returns the parsed value or undefined if empty.
- * Throws with a clear message if the input contains invalid JSON.
+ * Read an input and parse it as JSON. Returns the parsed value.
+ * Throws if the input is missing (when required) or not valid JSON.
  */
-function parseJsonInput(name) {
-    const raw = core.getInput(name);
-    if (!raw.trim())
+function parseJsonInput(name, options) {
+    const raw = core.getInput(name, options);
+    if (!raw)
         return undefined;
-    try {
-        return JSON.parse(raw);
-    }
-    catch {
-        throw new Error(`Input '${name}' is not valid JSON: ${raw.slice(0, 100)}`);
-    }
+    return JSON.parse(raw);
 }
 /**
- * Get a required input. Throws if missing or empty.
+ * Read a required input. Throws if missing.
  */
 function requireInput(name) {
-    const value = core.getInput(name);
-    if (!value.trim()) {
-        throw new Error(`Required input '${name}' is missing`);
-    }
-    return value;
+    return core.getInput(name, { required: true });
 }
 /**
- * Get an optional input with a default value.
+ * Read an optional input. Returns undefined if empty.
  */
-function getOptionalInput(name, defaultValue = "") {
-    const value = core.getInput(name);
-    return value.trim() || defaultValue;
+function getOptionalInput(name) {
+    return core.getInput(name) || undefined;
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@w3-io/action-core/dist/output.js
@@ -27599,14 +27527,16 @@ function getOptionalInput(name, defaultValue = "") {
  */
 function setJsonOutput(name, value) {
     const serialized = typeof value === "string" ? value : JSON.stringify(value);
-    core.setOutput(name, serialized);
+    lib_core.setOutput(name, serialized);
 }
 /**
  * Set multiple outputs at once.
  */
 function setOutputs(outputs) {
     for (const [key, value] of Object.entries(outputs)) {
-        setJsonOutput(key, value);
+        if (value != null) {
+            setJsonOutput(key, value);
+        }
     }
 }
 
@@ -27615,7 +27545,7 @@ function setOutputs(outputs) {
 /**
  * Structured error with code, message, and optional details.
  */
-class W3ActionError extends Error {
+class error_W3ActionError extends Error {
     code;
     statusCode;
     details;
@@ -27633,100 +27563,53 @@ class W3ActionError extends Error {
  * Usage:
  *   main().catch(handleError);
  */
-function handleError(error) {
-    if (error instanceof W3ActionError) {
-        core.setOutput("error-code", error.code);
+function error_handleError(error) {
+    if (error instanceof error_W3ActionError) {
+        lib_core.setOutput("error-code", error.code);
         if (error.statusCode)
-            core.setOutput("status-code", error.statusCode);
-        core.setFailed(`[${error.code}] ${error.message}`);
+            lib_core.setOutput("status-code", error.statusCode);
+        lib_core.setFailed(`[${error.code}] ${error.message}`);
     }
     else if (error instanceof Error) {
-        core.setFailed(error.message);
+        lib_core.setFailed(error.message);
     }
     else {
-        core.setFailed(String(error));
+        lib_core.setFailed(String(error));
     }
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@w3-io/action-core/dist/http.js
 
 /**
- * Make an HTTP request with timeout, retry, and structured errors.
+ * Make an HTTP request with JSON body. Returns parsed JSON response.
  *
- * - Retries on 429 and 5xx with exponential backoff
- * - Parses JSON response automatically
- * - Throws W3ActionError with status code on failure
+ * For partner API clients that don't need the bridge.
  */
 async function request(url, options = {}) {
-    const { method = "GET", headers = {}, body, timeout = 30000, retries = 2, retryDelay = 1000, } = options;
-    const init = {
-        method,
-        headers: {
-            "Content-Type": "application/json",
-            ...headers,
-        },
-        signal: AbortSignal.timeout(timeout),
-    };
-    if (body !== undefined) {
-        init.body = typeof body === "string" ? body : JSON.stringify(body);
-    }
-    let lastError;
-    for (let attempt = 0; attempt <= retries; attempt++) {
-        try {
-            const res = await fetch(url, init);
-            const raw = await res.text();
-            let parsed;
-            try {
-                parsed = JSON.parse(raw);
-            }
-            catch {
-                parsed = raw;
-            }
-            const responseHeaders = {};
-            res.headers.forEach((v, k) => {
-                responseHeaders[k] = v;
+    const { method = "GET", headers = {}, body, timeout = 30000 } = options;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+    try {
+        const response = await fetch(url, {
+            method,
+            headers: {
+                "Content-Type": "application/json",
+                ...headers,
+            },
+            body: body ? JSON.stringify(body) : undefined,
+            signal: controller.signal,
+        });
+        if (!response.ok) {
+            const text = await response.text().catch(() => "");
+            throw new W3ActionError("HTTP_ERROR", `${response.status}: ${text}`, {
+                statusCode: response.status,
             });
-            if (!res.ok) {
-                // Retry on 429 (rate limit) and 5xx (server error)
-                if ((res.status === 429 || res.status >= 500) &&
-                    attempt < retries) {
-                    await sleep(retryDelay * 2 ** attempt);
-                    continue;
-                }
-                throw new W3ActionError("HTTP_ERROR", `${method} ${url}: ${res.status}`, {
-                    statusCode: res.status,
-                    details: parsed,
-                });
-            }
-            return { status: res.status, headers: responseHeaders, body: parsed, raw };
         }
-        catch (error) {
-            if (error instanceof W3ActionError)
-                throw error;
-            lastError = error instanceof Error ? error : new Error(String(error));
-            if (attempt < retries) {
-                await sleep(retryDelay * 2 ** attempt);
-                continue;
-            }
-        }
+        return (await response.json());
     }
-    throw new W3ActionError("REQUEST_FAILED", `${method} ${url}: ${lastError?.message ?? "unknown error"}`);
-}
-function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-/**
- * Convenience: add API key auth header.
- */
-function apiKeyAuth(key, headerName = "Authorization", prefix = "Bearer") {
-    return { [headerName]: `${prefix} ${key}` };
-}
-/**
- * Convenience: add basic auth header.
- */
-function basicAuth(username, password) {
-    const encoded = Buffer.from(`${username}:${password}`).toString("base64");
-    return { Authorization: `Basic ${encoded}` };
+    finally {
+        clearTimeout(timer);
+    }
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@w3-io/action-core/dist/command.js
@@ -27770,8 +27653,17 @@ function createCommandRouter(commands) {
  *   - $W3_BRIDGE_URL    → TCP URL (macOS Docker Desktop fallback)
  *
  * Usage:
- *   import { bridge } from "@w3-io/action-core";
+ *   import { bridge, ethereum } from "@w3-io/action-core";
  *
+ *   // Typed helpers (recommended — autocomplete + type checking):
+ *   const receipt = await ethereum.callContract({
+ *     contract: "0x...",
+ *     method: "deposit(uint256)",
+ *     args: ["1000000"],
+ *     gasMultiplier: "1.5",
+ *   });
+ *
+ *   // Generic (full control):
  *   const balance = await bridge.chain("ethereum", "get-balance", {
  *     address: "0x...",
  *   });
@@ -27782,29 +27674,17 @@ function createCommandRouter(commands) {
 // ---------------------------------------------------------------------------
 // Transport
 // ---------------------------------------------------------------------------
-/**
- * Resolve the bridge endpoint from environment variables.
- *
- * Returns a fetch-compatible URL and optional Unix socket path.
- */
 function resolveEndpoint() {
     const bridgeUrl = process.env.W3_BRIDGE_URL;
     if (bridgeUrl) {
         return { url: bridgeUrl };
     }
     const socketPath = process.env.W3_BRIDGE_SOCKET ?? "/var/run/w3/bridge.sock";
-    // Node's fetch doesn't support Unix sockets natively.
-    // We use http.request for Unix socket transport.
     return { url: "http://localhost", socketPath };
 }
-/**
- * Make an HTTP request to the bridge. Handles both TCP and Unix socket
- * transports transparently.
- */
 async function bridgeRequest(path, body) {
     const { url, socketPath } = resolveEndpoint();
     if (socketPath) {
-        // Unix socket transport via Node's http module
         const http = await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7067, 19));
         return new Promise((resolve, reject) => {
             const payload = body ? JSON.stringify(body) : undefined;
@@ -27814,7 +27694,9 @@ async function bridgeRequest(path, body) {
                 method: body ? "POST" : "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    ...(payload ? { "Content-Length": Buffer.byteLength(payload) } : {}),
+                    ...(payload
+                        ? { "Content-Length": Buffer.byteLength(payload) }
+                        : {}),
                 },
             }, (res) => {
                 let data = "";
@@ -27823,25 +27705,22 @@ async function bridgeRequest(path, body) {
                     if (!res.statusCode || res.statusCode >= 400) {
                         try {
                             const err = JSON.parse(data);
-                            reject(new W3ActionError(err.code ?? "BRIDGE_ERROR", err.error ?? `Bridge returned ${res.statusCode}`, { statusCode: res.statusCode, details: err }));
+                            reject(new error_W3ActionError(err.code ?? "BRIDGE_ERROR", err.error ?? `Bridge returned ${res.statusCode}`, { statusCode: res.statusCode, details: err }));
                         }
                         catch {
-                            reject(new W3ActionError("BRIDGE_ERROR", data || `HTTP ${res.statusCode}`, {
-                                statusCode: res.statusCode,
-                            }));
+                            reject(new error_W3ActionError("BRIDGE_ERROR", data || `HTTP ${res.statusCode}`, { statusCode: res.statusCode }));
                         }
                         return;
                     }
                     try {
-                        const parsed = JSON.parse(data);
-                        resolve(parsed);
+                        resolve(JSON.parse(data));
                     }
                     catch {
                         resolve(data);
                     }
                 });
             });
-            req.on("error", (err) => reject(new W3ActionError("BRIDGE_UNAVAILABLE", err.message)));
+            req.on("error", (err) => reject(new error_W3ActionError("BRIDGE_UNAVAILABLE", err.message)));
             if (payload)
                 req.write(payload);
             req.end();
@@ -27864,7 +27743,7 @@ async function bridgeRequest(path, body) {
         catch {
             // not JSON
         }
-        throw new W3ActionError(parsed?.code ?? "BRIDGE_ERROR", parsed?.error ?? text ?? `Bridge returned ${res.status}`, { statusCode: res.status, details: parsed });
+        throw new error_W3ActionError(parsed?.code ?? "BRIDGE_ERROR", parsed?.error ?? text ?? `Bridge returned ${res.status}`, { statusCode: res.status, details: parsed });
     }
     try {
         return JSON.parse(text);
@@ -27873,9 +27752,19 @@ async function bridgeRequest(path, body) {
         return text;
     }
 }
-/**
- * Check if the bridge is available.
- */
+// ---------------------------------------------------------------------------
+// Internal helpers
+// ---------------------------------------------------------------------------
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function chainRequest(chainName, action, params, network) {
+    return bridgeRequest(`/${chainName}/${action}`, {
+        network: network ?? chainName,
+        params,
+    });
+}
+// ---------------------------------------------------------------------------
+// Public API — generic
+// ---------------------------------------------------------------------------
 async function health() {
     try {
         const res = (await bridgeRequest("/health"));
@@ -27886,42 +27775,83 @@ async function health() {
     }
 }
 /**
- * Call a chain operation via the bridge.
+ * Execute a chain operation.
  *
- * @param chain - "ethereum", "bitcoin", or "solana"
- * @param action - Operation name (e.g. "get-balance", "transfer", "call-contract")
- * @param params - Action-specific parameters
- * @param network - Network identifier (e.g. "ethereum-sepolia", "avalanche-fuji")
+ * For type-safe calls, use the typed helpers (`ethereum`, `solana`,
+ * `bitcoin`) instead. This generic method accepts any params.
  */
 async function chain(chainName, action, params, network) {
-    return (await bridgeRequest(`/${chainName}/${action}`, {
-        network: network ?? chainName,
-        params,
-    }));
+    return chainRequest(chainName, action, params, network);
 }
-/**
- * Call a crypto operation via the bridge.
- *
- * @param action - Operation name (e.g. "keccak-256", "aes-encrypt", "jwt-create")
- * @param params - Operation-specific parameters
- */
 async function bridge_crypto(action, params) {
     return (await bridgeRequest(`/crypto/${action}`, {
         params,
     }));
 }
+// ---------------------------------------------------------------------------
+// Public API — typed chain helpers
+// ---------------------------------------------------------------------------
+/** Typed Ethereum operations. */
+const ethereum = {
+    getBalance: (params, network) => chainRequest("ethereum", "get-balance", params, network),
+    readContract: (params, network) => chainRequest("ethereum", "read-contract", params, network),
+    callContract: (params, network) => chainRequest("ethereum", "call-contract", params, network),
+    transfer: (params, network) => chainRequest("ethereum", "transfer", params, network),
+    sendTransaction: (params, network) => chainRequest("ethereum", "send-transaction", params, network),
+    deployContract: (params, network) => chainRequest("ethereum", "deploy-contract", params, network),
+    transferToken: (params, network) => chainRequest("ethereum", "transfer-token", params, network),
+    approveToken: (params, network) => chainRequest("ethereum", "approve-token", params, network),
+    transferNft: (params, network) => chainRequest("ethereum", "transfer-nft", params, network),
+    getTransaction: (params, network) => chainRequest("ethereum", "get-transaction", params, network),
+    waitForTransaction: (params, network) => chainRequest("ethereum", "wait-for-transaction", params, network),
+    getEvents: (params, network) => chainRequest("ethereum", "get-events", params, network),
+    resolveName: (params, network) => chainRequest("ethereum", "resolve-name", params, network),
+    getTokenBalance: (params, network) => chainRequest("ethereum", "get-token-balance", params, network),
+    getTokenAllowance: (params, network) => chainRequest("ethereum", "get-token-allowance", params, network),
+    getNftOwner: (params, network) => chainRequest("ethereum", "get-nft-owner", params, network),
+    getNftMetadata: (params, network) => chainRequest("ethereum", "get-nft-metadata", params, network),
+};
+/** Typed Solana operations. */
+const solana = {
+    getBalance: (params, network) => chainRequest("solana", "get-balance", params, network),
+    transfer: (params, network) => chainRequest("solana", "transfer", params, network),
+    transferToken: (params, network) => chainRequest("solana", "transfer-token", params, network),
+    callProgram: (params, network) => chainRequest("solana", "call-program", params, network),
+    getAccount: (params, network) => chainRequest("solana", "get-account", params, network),
+    getTokenBalance: (params, network) => chainRequest("solana", "get-token-balance", params, network),
+    getTokenAccounts: (params, network) => chainRequest("solana", "get-token-accounts", params, network),
+    getTransaction: (params, network) => chainRequest("solana", "get-transaction", params, network),
+    waitForTransaction: (params, network) => chainRequest("solana", "wait-for-transaction", params, network),
+    /** Generate an ephemeral keypair for use as an additional signer. */
+    generateKeypair: () => bridgeRequest("/solana/generate-keypair", {}),
+    /** Get the payer's public key (no secret exposed). */
+    payerAddress: () => bridgeRequest("/solana/payer-address"),
+};
+/** Typed Bitcoin operations. */
+const bitcoin = {
+    getBalance: (params, network) => chainRequest("bitcoin", "get-balance", params, network),
+    send: (params, network) => chainRequest("bitcoin", "send", params, network),
+    getUtxos: (params, network) => chainRequest("bitcoin", "get-utxos", params, network),
+    getTransaction: (params, network) => chainRequest("bitcoin", "get-transaction", params, network),
+    getFeeRate: (params, network) => chainRequest("bitcoin", "get-fee-rate", params ?? {}, network),
+    waitForTransaction: (params, network) => chainRequest("bitcoin", "wait-for-transaction", params, network),
+};
+// ---------------------------------------------------------------------------
+// Default export
+// ---------------------------------------------------------------------------
 /**
- * The bridge client. Import and use:
+ * The bridge client.
  *
- *   import { bridge } from "@w3-io/action-core";
+ *   import { bridge, ethereum, solana, bitcoin } from "@w3-io/action-core";
  *
- *   // Chain operations
+ *   // Typed (recommended):
+ *   const receipt = await ethereum.callContract({ contract, method, args });
+ *   const sig = await solana.callProgram({ programId, accounts, data });
+ *   const tx = await bitcoin.send({ to, amount });
+ *
+ *   // Generic:
  *   const bal = await bridge.chain("ethereum", "get-balance", { address });
- *
- *   // Crypto
  *   const hash = await bridge.crypto("keccak-256", { data: "0x..." });
- *
- *   // Health check
  *   const ok = await bridge.health();
  */
 const bridge = {
@@ -27930,48 +27860,69 @@ const bridge = {
     crypto: bridge_crypto,
 };
 
+;// CONCATENATED MODULE: ./node_modules/@w3-io/action-core/dist/summary.js
+
+/**
+ * Write a job summary safely.
+ *
+ * Wraps `@actions/core` summary with proper `await` and error handling.
+ * The W3 runner sets GITHUB_STEP_SUMMARY and mounts a writable file,
+ * so this works on both GitHub Actions and W3. If the summary file is
+ * unavailable (local dev, CI without summary support), the write is
+ * silently skipped.
+ *
+ * Usage:
+ *   await writeSummary("My Action: deposit", [
+ *     ["Amount", "1000 USDC"],
+ *     ["TX", "`0xabc...`"],
+ *   ]);
+ *
+ *   await writeSummary("My Action: query", result);
+ */
+async function writeSummary(heading, content) {
+    try {
+        core.summary.addHeading(heading, 3);
+        if (typeof content === "string") {
+            core.summary.addRaw(content);
+        }
+        else if (Array.isArray(content)) {
+            // Key-value pairs rendered as markdown
+            for (const [key, value] of content) {
+                core.summary.addRaw(`**${key}:** ${value}\n\n`);
+            }
+        }
+        else {
+            core.summary.addCodeBlock(JSON.stringify(content, null, 2), "json");
+        }
+        await core.summary.write();
+    }
+    catch {
+        // Silently skip — environment may not support job summaries
+    }
+}
+
 ;// CONCATENATED MODULE: ./node_modules/@w3-io/action-core/dist/test.js
 /**
  * Test utilities for W3 actions.
  *
  * Mocks @actions/core so you can test command handlers in isolation
  * without running the full GitHub Actions runtime.
- *
- * Usage:
- *   import { mockAction, expectOutput, expectFailed } from "@w3-io/action-core/test";
- *
- *   test("keccak-256 hashes correctly", async () => {
- *     mockAction({ command: "keccak-256", input: "48656c6c6f" });
- *     await import("../src/index.js");
- *     expectOutput("result", (val) => val.includes("hash"));
- *   });
  */
 let _inputs = {};
 let _outputs = new Map();
 let _failed = null;
-/**
- * Set up mock inputs for the next action invocation.
- * Call this before importing/running the action.
- */
 function mockAction(inputs) {
     _inputs = inputs;
     _outputs = new Map();
     _failed = null;
-    // Mock process.env for @actions/core.getInput()
     for (const [key, value] of Object.entries(inputs)) {
         const envKey = `INPUT_${key.replace(/-/g, "_").toUpperCase()}`;
         process.env[envKey] = value;
     }
 }
-/**
- * Get an output that was set during action execution.
- */
 function getOutput(name) {
     return _outputs.get(name);
 }
-/**
- * Assert an output was set and optionally validate its value.
- */
 function expectOutput(name, validator) {
     const value = _outputs.get(name);
     if (value === undefined) {
@@ -27981,9 +27932,6 @@ function expectOutput(name, validator) {
         throw new Error(`Output "${name}" failed validation. Value: ${value}`);
     }
 }
-/**
- * Assert the action failed with a specific message pattern.
- */
 function expectFailed(pattern) {
     if (_failed === null) {
         throw new Error("Expected action to fail, but it succeeded");
@@ -27997,17 +27945,11 @@ function expectFailed(pattern) {
         }
     }
 }
-/**
- * Assert the action succeeded (did not call setFailed).
- */
 function expectSuccess() {
     if (_failed !== null) {
         throw new Error(`Expected action to succeed, but it failed: "${_failed}"`);
     }
 }
-/**
- * Clean up mock environment after tests.
- */
 function cleanupMock() {
     for (const key of Object.keys(process.env)) {
         if (key.startsWith("INPUT_")) {
@@ -28018,14 +27960,8 @@ function cleanupMock() {
     _outputs = new Map();
     _failed = null;
 }
-/**
- * Create a mock @actions/core module that captures outputs and failures.
- *
- * Use this to intercept setOutput/setFailed calls:
- *   const core = createMockCore();
- *   // pass core to your command handler
- */
 function createMockCore() {
+    const noopChain = () => ({ addRaw: noopChain, addHeading: noopChain, addCodeBlock: noopChain, write: async () => { } });
     return {
         getInput: (name, opts) => {
             const value = _inputs[name] ?? "";
@@ -28044,9 +27980,7 @@ function createMockCore() {
         warning: (_msg) => { },
         error: (_msg) => { },
         debug: (_msg) => { },
-        summary: {
-            addHeading: () => ({ addRaw: () => ({ write: async () => { } }) }),
-        },
+        summary: { addHeading: noopChain, addRaw: noopChain, addCodeBlock: noopChain, write: async () => { } },
     };
 }
 
@@ -28060,134 +27994,39 @@ function createMockCore() {
 
 
 
-/***/ })
+;// CONCATENATED MODULE: ./src/index.js
 
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nccwpck_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 		}
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/create fake namespace object */
-/******/ 	(() => {
-/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
-/******/ 		var leafPrototypes;
-/******/ 		// create a fake namespace object
-/******/ 		// mode & 1: value is a module id, require it
-/******/ 		// mode & 2: merge all properties of value into the ns
-/******/ 		// mode & 4: return value when already ns object
-/******/ 		// mode & 16: return value when it's Promise-like
-/******/ 		// mode & 8|1: behave like require
-/******/ 		__nccwpck_require__.t = function(value, mode) {
-/******/ 			if(mode & 1) value = this(value);
-/******/ 			if(mode & 8) return value;
-/******/ 			if(typeof value === 'object' && value) {
-/******/ 				if((mode & 4) && value.__esModule) return value;
-/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
-/******/ 			}
-/******/ 			var ns = Object.create(null);
-/******/ 			__nccwpck_require__.r(ns);
-/******/ 			var def = {};
-/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
-/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
-/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
-/******/ 			}
-/******/ 			def['default'] = () => (value);
-/******/ 			__nccwpck_require__.d(ns, def);
-/******/ 			return ns;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__nccwpck_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nccwpck_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat */
-/******/ 	
-/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-const { setJsonOutput, handleError } = __nccwpck_require__(9877);
-const core = __nccwpck_require__(7484);
+
 
 async function run() {
   try {
-    const command = core.getInput("command", { required: true }).toLowerCase();
-    const clientId = core.getInput("client-id", { required: true });
-    const clientSecret = core.getInput("client-secret", { required: true });
-    const apiUrl = core.getInput("api-url") || "https://api.sandbox.paxos.com/v2";
-    const oauthUrl = core.getInput("oauth-url") || "https://oauth.sandbox.paxos.com/oauth2/token";
-    const scope = core.getInput("scope") || "";
+    const command = lib_core.getInput("command", { required: true }).toLowerCase();
+    const clientId = lib_core.getInput("client-id", { required: true });
+    const clientSecret = lib_core.getInput("client-secret", { required: true });
+    const apiUrl =
+      lib_core.getInput("api-url") || "https://api.sandbox.paxos.com/v2";
+    const oauthUrl =
+      lib_core.getInput("oauth-url") ||
+      "https://oauth.sandbox.paxos.com/oauth2/token";
+    const scope = lib_core.getInput("scope") || "";
 
     // Common inputs
-    const body = core.getInput("body") || "";
-    const id = core.getInput("id") || "";
-    const profileId = core.getInput("profile-id") || "";
-    const identityId = core.getInput("identity-id") || "";
-    const accountId = core.getInput("account-id") || "";
-    const orderId = core.getInput("order-id") || "";
-    const quoteId = core.getInput("quote-id") || "";
-    const market = core.getInput("market") || "";
-    const asset = core.getInput("asset") || "";
-    const ruleId = core.getInput("rule-id") || "";
-    const memberId = core.getInput("member-id") || "";
-    const transactionId = core.getInput("transaction-id") || "";
-    const limit = core.getInput("limit") || "";
-    const cursor = core.getInput("cursor") || "";
-    const status = core.getInput("status") || "";
-    const refId = core.getInput("ref-id") || "";
+    const body = lib_core.getInput("body") || "";
+    const id = lib_core.getInput("id") || "";
+    const profileId = lib_core.getInput("profile-id") || "";
+    const identityId = lib_core.getInput("identity-id") || "";
+    const accountId = lib_core.getInput("account-id") || "";
+    const orderId = lib_core.getInput("order-id") || "";
+    const quoteId = lib_core.getInput("quote-id") || "";
+    const market = lib_core.getInput("market") || "";
+    const asset = lib_core.getInput("asset") || "";
+    const ruleId = lib_core.getInput("rule-id") || "";
+    const memberId = lib_core.getInput("member-id") || "";
+    const transactionId = lib_core.getInput("transaction-id") || "";
+    const limit = lib_core.getInput("limit") || "";
+    const cursor = lib_core.getInput("cursor") || "";
+    const status = lib_core.getInput("status") || "";
+    const refId = lib_core.getInput("ref-id") || "";
 
     // --- OAuth2 Token ---
     const tokenParams = new URLSearchParams();
@@ -28203,7 +28042,9 @@ async function run() {
     });
     const tokenData = await tokenRes.json();
     if (!tokenData.access_token) {
-      throw new Error(`OAuth failed: ${tokenData.error_description || tokenData.error || JSON.stringify(tokenData)}`);
+      throw new Error(
+        `OAuth failed: ${tokenData.error_description || tokenData.error || JSON.stringify(tokenData)}`,
+      );
     }
 
     const headers = {
@@ -28222,10 +28063,16 @@ async function run() {
       if (res.status === 204) return { success: true };
       const text = await res.text();
       let data;
-      try { data = JSON.parse(text); } catch { data = text; }
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = text;
+      }
       if (!res.ok) {
         const msg = typeof data === "object" ? JSON.stringify(data) : data;
-        throw new Error(`${method} ${path} returned ${res.status}: ${msg.slice(0, 200)}`);
+        throw new Error(
+          `${method} ${path} returned ${res.status}: ${msg.slice(0, 200)}`,
+        );
       }
       return data;
     }
@@ -28244,283 +28091,560 @@ async function run() {
 
     switch (command) {
       // ── Identity ─────────────────────────────────────────────────
-      case "create-identity": result = await req("POST", "/identity/identities", pb()); break;
-      case "list-identities": result = await req("GET", `/identity/identities${qs({ limit, cursor })}`); break;
+      case "create-identity":
+        result = await req("POST", "/identity/identities", pb());
+        break;
+      case "list-identities":
+        result = await req(
+          "GET",
+          `/identity/identities${qs({ limit, cursor })}`,
+        );
+        break;
       case "get-identity":
         if (!identityId) throw new Error("identity-id required");
-        result = await req("GET", `/identity/identities/${identityId}`); break;
+        result = await req("GET", `/identity/identities/${identityId}`);
+        break;
       case "update-identity":
         if (!identityId) throw new Error("identity-id required");
-        result = await req("PUT", `/identity/identities/${identityId}`, pb()); break;
+        result = await req("PUT", `/identity/identities/${identityId}`, pb());
+        break;
       case "upload-document":
         if (!identityId) throw new Error("identity-id required");
-        result = await req("PUT", `/identity/identities/${identityId}/documents`, pb()); break;
+        result = await req(
+          "PUT",
+          `/identity/identities/${identityId}/documents`,
+          pb(),
+        );
+        break;
       case "list-documents":
         if (!identityId) throw new Error("identity-id required");
-        result = await req("GET", `/identity/identities/${identityId}/documents`); break;
+        result = await req(
+          "GET",
+          `/identity/identities/${identityId}/documents`,
+        );
+        break;
       case "sandbox-set-identity-status":
         if (!identityId) throw new Error("identity-id required");
-        result = await req("PUT", `/identity/identities/${identityId}/sandbox-status`, pb()); break;
+        result = await req(
+          "PUT",
+          `/identity/identities/${identityId}/sandbox-status`,
+          pb(),
+        );
+        break;
 
       // ── Identity Controls ────────────────────────────────────────
-      case "create-identity-control": result = await req("POST", "/identity/controls", pb()); break;
-      case "list-identity-controls": result = await req("GET", `/identity/controls${qs({ limit, cursor })}`); break;
-      case "delete-identity-control": result = await req("DELETE", `/identity/controls${qs({ id })}`); break;
+      case "create-identity-control":
+        result = await req("POST", "/identity/controls", pb());
+        break;
+      case "list-identity-controls":
+        result = await req("GET", `/identity/controls${qs({ limit, cursor })}`);
+        break;
+      case "delete-identity-control":
+        result = await req("DELETE", `/identity/controls${qs({ id })}`);
+        break;
 
       // ── Institution Members ──────────────────────────────────────
-      case "add-institution-member": result = await req("POST", "/identity/institution-members", pb()); break;
+      case "add-institution-member":
+        result = await req("POST", "/identity/institution-members", pb());
+        break;
       case "remove-institution-member":
         if (!memberId) throw new Error("member-id required");
-        result = await req("DELETE", `/identity/institution-members/${memberId}`); break;
+        result = await req(
+          "DELETE",
+          `/identity/institution-members/${memberId}`,
+        );
+        break;
 
       // ── Accounts ─────────────────────────────────────────────────
-      case "create-account": result = await req("POST", "/identity/accounts", pb()); break;
-      case "list-accounts": result = await req("GET", `/identity/accounts${qs({ limit, cursor })}`); break;
+      case "create-account":
+        result = await req("POST", "/identity/accounts", pb());
+        break;
+      case "list-accounts":
+        result = await req("GET", `/identity/accounts${qs({ limit, cursor })}`);
+        break;
       case "get-account":
         if (!accountId) throw new Error("account-id required");
-        result = await req("GET", `/identity/accounts/${accountId}`); break;
-      case "update-account": result = await req("PUT", "/identity/accounts", pb()); break;
+        result = await req("GET", `/identity/accounts/${accountId}`);
+        break;
+      case "update-account":
+        result = await req("PUT", "/identity/accounts", pb());
+        break;
 
       // ── Account Members ──────────────────────────────────────────
-      case "add-account-member": result = await req("POST", "/identity/account-members", pb()); break;
+      case "add-account-member":
+        result = await req("POST", "/identity/account-members", pb());
+        break;
       case "remove-account-member":
         if (!memberId) throw new Error("member-id required");
-        result = await req("DELETE", `/identity/account-members/${memberId}`); break;
+        result = await req("DELETE", `/identity/account-members/${memberId}`);
+        break;
 
       // ── Profiles ─────────────────────────────────────────────────
-      case "create-profile": result = await req("POST", "/profiles", pb()); break;
-      case "list-profiles": result = await req("GET", `/profiles${qs({ limit, cursor })}`); break;
+      case "create-profile":
+        result = await req("POST", "/profiles", pb());
+        break;
+      case "list-profiles":
+        result = await req("GET", `/profiles${qs({ limit, cursor })}`);
+        break;
       case "get-profile":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("GET", `/profiles/${profileId}`); break;
+        result = await req("GET", `/profiles/${profileId}`);
+        break;
       case "update-profile":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("PUT", `/profiles/${profileId}`, pb()); break;
+        result = await req("PUT", `/profiles/${profileId}`, pb());
+        break;
       case "deactivate-profile":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("PUT", `/profiles/${profileId}/deactivate`, pb()); break;
+        result = await req("PUT", `/profiles/${profileId}/deactivate`, pb());
+        break;
       case "list-profile-balances":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("GET", `/profiles/${profileId}/balances`); break;
+        result = await req("GET", `/profiles/${profileId}/balances`);
+        break;
       case "get-profile-balance":
-        if (!profileId || !asset) throw new Error("profile-id and asset required");
-        result = await req("GET", `/profiles/${profileId}/balances/${asset}`); break;
+        if (!profileId || !asset)
+          throw new Error("profile-id and asset required");
+        result = await req("GET", `/profiles/${profileId}/balances/${asset}`);
+        break;
 
       // ── Deposit Addresses ────────────────────────────────────────
-      case "create-deposit-address": result = await req("POST", "/transfer/deposit-addresses", pb()); break;
-      case "list-deposit-addresses": result = await req("GET", `/transfer/deposit-addresses${qs({ profile_id: profileId, limit, cursor })}`); break;
+      case "create-deposit-address":
+        result = await req("POST", "/transfer/deposit-addresses", pb());
+        break;
+      case "list-deposit-addresses":
+        result = await req(
+          "GET",
+          `/transfer/deposit-addresses${qs({ profile_id: profileId, limit, cursor })}`,
+        );
+        break;
 
       // ── Crypto Deposits ──────────────────────────────────────────
       case "update-crypto-deposit":
         if (!id) throw new Error("id required");
-        result = await req("POST", `/transfer/crypto-deposits/${id}/update`, pb()); break;
+        result = await req(
+          "POST",
+          `/transfer/crypto-deposits/${id}/update`,
+          pb(),
+        );
+        break;
       case "reject-crypto-deposit":
         if (!id) throw new Error("id required");
-        result = await req("POST", `/transfer/crypto-deposits/${id}/reject`, pb()); break;
+        result = await req(
+          "POST",
+          `/transfer/crypto-deposits/${id}/reject`,
+          pb(),
+        );
+        break;
 
       // ── Crypto Withdrawals ───────────────────────────────────────
-      case "create-crypto-withdrawal": result = await req("POST", "/transfer/crypto-withdrawals", pb()); break;
-      case "list-crypto-destination-addresses": result = await req("GET", `/transfer/crypto-destination-addresses${qs({ profile_id: profileId, limit, cursor })}`); break;
-      case "put-crypto-destination-address": result = await req("PUT", "/transfer/crypto-destination-address", pb()); break;
-      case "create-withdrawal-fee": result = await req("POST", "/transfer/fees/crypto-withdrawal", pb()); break;
+      case "create-crypto-withdrawal":
+        result = await req("POST", "/transfer/crypto-withdrawals", pb());
+        break;
+      case "list-crypto-destination-addresses":
+        result = await req(
+          "GET",
+          `/transfer/crypto-destination-addresses${qs({ profile_id: profileId, limit, cursor })}`,
+        );
+        break;
+      case "put-crypto-destination-address":
+        result = await req("PUT", "/transfer/crypto-destination-address", pb());
+        break;
+      case "create-withdrawal-fee":
+        result = await req("POST", "/transfer/fees/crypto-withdrawal", pb());
+        break;
 
       // ── Fiat Transfers ───────────────────────────────────────────
-      case "create-fiat-account": result = await req("POST", "/transfer/fiat-accounts", pb()); break;
-      case "list-fiat-accounts": result = await req("GET", `/transfer/fiat-accounts${qs({ profile_id: profileId, limit, cursor })}`); break;
+      case "create-fiat-account":
+        result = await req("POST", "/transfer/fiat-accounts", pb());
+        break;
+      case "list-fiat-accounts":
+        result = await req(
+          "GET",
+          `/transfer/fiat-accounts${qs({ profile_id: profileId, limit, cursor })}`,
+        );
+        break;
       case "get-fiat-account":
         if (!id) throw new Error("id required");
-        result = await req("GET", `/transfer/fiat-accounts/${id}`); break;
+        result = await req("GET", `/transfer/fiat-accounts/${id}`);
+        break;
       case "update-fiat-account":
         if (!id) throw new Error("id required");
-        result = await req("PUT", `/transfer/fiat-accounts/${id}`, pb()); break;
+        result = await req("PUT", `/transfer/fiat-accounts/${id}`, pb());
+        break;
       case "delete-fiat-account":
         if (!id) throw new Error("id required");
-        result = await req("DELETE", `/transfer/fiat-accounts/${id}`); break;
-      case "create-fiat-deposit-instructions": result = await req("POST", "/transfer/fiat-deposit-instructions", pb()); break;
-      case "list-fiat-deposit-instructions": result = await req("GET", `/transfer/fiat-deposit-instructions${qs({ profile_id: profileId, limit, cursor })}`); break;
+        result = await req("DELETE", `/transfer/fiat-accounts/${id}`);
+        break;
+      case "create-fiat-deposit-instructions":
+        result = await req("POST", "/transfer/fiat-deposit-instructions", pb());
+        break;
+      case "list-fiat-deposit-instructions":
+        result = await req(
+          "GET",
+          `/transfer/fiat-deposit-instructions${qs({ profile_id: profileId, limit, cursor })}`,
+        );
+        break;
       case "get-fiat-deposit-instructions":
         if (!id) throw new Error("id required");
-        result = await req("GET", `/transfer/fiat-deposit-instructions/${id}`); break;
-      case "create-fiat-withdrawal": result = await req("POST", "/transfer/fiat-withdrawals", pb()); break;
+        result = await req("GET", `/transfer/fiat-deposit-instructions/${id}`);
+        break;
+      case "create-fiat-withdrawal":
+        result = await req("POST", "/transfer/fiat-withdrawals", pb());
+        break;
 
       // ── Internal / Paxos Transfers ───────────────────────────────
-      case "create-internal-transfer": result = await req("POST", "/transfer/internal", pb()); break;
-      case "create-paxos-transfer": result = await req("POST", "/transfer/paxos", pb()); break;
+      case "create-internal-transfer":
+        result = await req("POST", "/transfer/internal", pb());
+        break;
+      case "create-paxos-transfer":
+        result = await req("POST", "/transfer/paxos", pb());
+        break;
 
       // ── Transfers (Read) ─────────────────────────────────────────
-      case "list-transfers": result = await req("GET", `/transfer/transfers${qs({ profile_id: profileId, limit, cursor, status, ref_id: refId })}`); break;
+      case "list-transfers":
+        result = await req(
+          "GET",
+          `/transfer/transfers${qs({ profile_id: profileId, limit, cursor, status, ref_id: refId })}`,
+        );
+        break;
       case "get-transfer":
         if (!id) throw new Error("id required");
-        result = await req("GET", `/transfer/transfers/${id}`); break;
+        result = await req("GET", `/transfer/transfers/${id}`);
+        break;
 
       // ── Limits ───────────────────────────────────────────────────
-      case "list-transfer-limits": result = await req("GET", `/transfer/limits/utilizations${qs({ profile_id: profileId })}`); break;
+      case "list-transfer-limits":
+        result = await req(
+          "GET",
+          `/transfer/limits/utilizations${qs({ profile_id: profileId })}`,
+        );
+        break;
 
       // ── Stablecoin Conversion ────────────────────────────────────
-      case "create-conversion": result = await req("POST", "/conversion/stablecoins", pb()); break;
-      case "list-conversions": result = await req("GET", `/conversion/stablecoins${qs({ profile_id: profileId, limit, cursor, status })}`); break;
+      case "create-conversion":
+        result = await req("POST", "/conversion/stablecoins", pb());
+        break;
+      case "list-conversions":
+        result = await req(
+          "GET",
+          `/conversion/stablecoins${qs({ profile_id: profileId, limit, cursor, status })}`,
+        );
+        break;
       case "get-conversion":
         if (!id) throw new Error("id required");
-        result = await req("GET", `/conversion/stablecoins/${id}`); break;
+        result = await req("GET", `/conversion/stablecoins/${id}`);
+        break;
       case "cancel-conversion":
         if (!id) throw new Error("id required");
-        result = await req("DELETE", `/conversion/stablecoins/${id}`); break;
+        result = await req("DELETE", `/conversion/stablecoins/${id}`);
+        break;
 
       // ── Market Data ──────────────────────────────────────────────
-      case "list-markets": result = await req("GET", "/markets"); break;
+      case "list-markets":
+        result = await req("GET", "/markets");
+        break;
       case "get-order-book":
         if (!market) throw new Error("market required");
-        result = await req("GET", `/markets/${market}/order-book`); break;
+        result = await req("GET", `/markets/${market}/order-book`);
+        break;
       case "get-ticker":
         if (!market) throw new Error("market required");
-        result = await req("GET", `/markets/${market}/ticker`); break;
+        result = await req("GET", `/markets/${market}/ticker`);
+        break;
       case "list-recent-executions":
         if (!market) throw new Error("market required");
-        result = await req("GET", `/markets/${market}/recent-executions${qs({ limit })}`); break;
+        result = await req(
+          "GET",
+          `/markets/${market}/recent-executions${qs({ limit })}`,
+        );
+        break;
       case "list-historical-prices":
         if (!market) throw new Error("market required");
-        result = await req("GET", `/markets/${market}/historical-prices${qs({ limit, cursor })}`); break;
-      case "list-prices": result = await req("GET", "/all-markets/prices"); break;
-      case "list-tickers": result = await req("GET", "/all-markets/ticker"); break;
+        result = await req(
+          "GET",
+          `/markets/${market}/historical-prices${qs({ limit, cursor })}`,
+        );
+        break;
+      case "list-prices":
+        result = await req("GET", "/all-markets/prices");
+        break;
+      case "list-tickers":
+        result = await req("GET", "/all-markets/ticker");
+        break;
 
       // ── Orders ───────────────────────────────────────────────────
       case "create-order":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("POST", `/profiles/${profileId}/orders`, pb()); break;
+        result = await req("POST", `/profiles/${profileId}/orders`, pb());
+        break;
       case "list-orders":
         if (profileId) {
-          result = await req("GET", `/profiles/${profileId}/orders${qs({ limit, cursor, status })}`);
+          result = await req(
+            "GET",
+            `/profiles/${profileId}/orders${qs({ limit, cursor, status })}`,
+          );
         } else {
           result = await req("GET", `/orders${qs({ limit, cursor, status })}`);
         }
         break;
       case "get-order":
-        if (!profileId || !orderId) throw new Error("profile-id and order-id required");
-        result = await req("GET", `/profiles/${profileId}/orders/${orderId}`); break;
+        if (!profileId || !orderId)
+          throw new Error("profile-id and order-id required");
+        result = await req("GET", `/profiles/${profileId}/orders/${orderId}`);
+        break;
       case "cancel-order":
-        if (!profileId || !orderId) throw new Error("profile-id and order-id required");
-        result = await req("DELETE", `/profiles/${profileId}/orders/${orderId}`); break;
+        if (!profileId || !orderId)
+          throw new Error("profile-id and order-id required");
+        result = await req(
+          "DELETE",
+          `/profiles/${profileId}/orders/${orderId}`,
+        );
+        break;
       case "list-executions":
         if (profileId) {
-          result = await req("GET", `/profiles/${profileId}/executions${qs({ limit, cursor })}`);
+          result = await req(
+            "GET",
+            `/profiles/${profileId}/executions${qs({ limit, cursor })}`,
+          );
         } else {
           result = await req("GET", `/executions${qs({ limit, cursor })}`);
         }
         break;
 
       // ── Quotes ───────────────────────────────────────────────────
-      case "list-quotes": result = await req("GET", `/quotes${qs({ limit, cursor })}`); break;
+      case "list-quotes":
+        result = await req("GET", `/quotes${qs({ limit, cursor })}`);
+        break;
       case "create-quote-execution":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("POST", `/profiles/${profileId}/quote-executions`, pb()); break;
+        result = await req(
+          "POST",
+          `/profiles/${profileId}/quote-executions`,
+          pb(),
+        );
+        break;
       case "list-quote-executions":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("GET", `/profiles/${profileId}/quote-executions${qs({ limit, cursor })}`); break;
+        result = await req(
+          "GET",
+          `/profiles/${profileId}/quote-executions${qs({ limit, cursor })}`,
+        );
+        break;
       case "get-quote-execution":
         if (!profileId || !id) throw new Error("profile-id and id required");
-        result = await req("GET", `/profiles/${profileId}/quote-executions/${id}`); break;
+        result = await req(
+          "GET",
+          `/profiles/${profileId}/quote-executions/${id}`,
+        );
+        break;
 
       // ── Issuer Quotes ────────────────────────────────────────────
-      case "create-issuer-quote": result = await req("POST", "/issuer-quote", pb()); break;
+      case "create-issuer-quote":
+        result = await req("POST", "/issuer-quote", pb());
+        break;
       case "execute-issuer-quote":
         if (!quoteId) throw new Error("quote-id required");
-        result = await req("POST", `/issuer-quote/${quoteId}`, pb()); break;
-      case "list-issuer-quotes": result = await req("GET", `/issuer-quotes${qs({ limit, cursor })}`); break;
+        result = await req("POST", `/issuer-quote/${quoteId}`, pb());
+        break;
+      case "list-issuer-quotes":
+        result = await req("GET", `/issuer-quotes${qs({ limit, cursor })}`);
+        break;
 
       // ── Orchestration ────────────────────────────────────────────
-      case "create-orchestration": result = await req("POST", "/orchestration/orchestrations", pb()); break;
-      case "list-orchestrations": result = await req("GET", `/orchestration/orchestrations${qs({ limit, cursor, status })}`); break;
+      case "create-orchestration":
+        result = await req("POST", "/orchestration/orchestrations", pb());
+        break;
+      case "list-orchestrations":
+        result = await req(
+          "GET",
+          `/orchestration/orchestrations${qs({ limit, cursor, status })}`,
+        );
+        break;
       case "get-orchestration":
         if (!id) throw new Error("id required");
-        result = await req("GET", `/orchestration/orchestrations/${id}`); break;
+        result = await req("GET", `/orchestration/orchestrations/${id}`);
+        break;
 
       // ── Orchestration Rules ──────────────────────────────────────
-      case "create-orchestration-rule": result = await req("POST", "/orchestration/rules", pb()); break;
-      case "list-orchestration-rules": result = await req("GET", `/orchestration/rules${qs({ limit, cursor })}`); break;
+      case "create-orchestration-rule":
+        result = await req("POST", "/orchestration/rules", pb());
+        break;
+      case "list-orchestration-rules":
+        result = await req(
+          "GET",
+          `/orchestration/rules${qs({ limit, cursor })}`,
+        );
+        break;
       case "delete-orchestration-rule":
         if (!ruleId) throw new Error("rule-id required");
-        result = await req("DELETE", `/orchestration/rules/${ruleId}`); break;
+        result = await req("DELETE", `/orchestration/rules/${ruleId}`);
+        break;
 
       // ── Settlement ───────────────────────────────────────────────
-      case "create-settlement": result = await req("POST", "/settlement/transactions", pb()); break;
-      case "list-settlements": result = await req("GET", `/settlement/transactions${qs({ limit, cursor, status })}`); break;
+      case "create-settlement":
+        result = await req("POST", "/settlement/transactions", pb());
+        break;
+      case "list-settlements":
+        result = await req(
+          "GET",
+          `/settlement/transactions${qs({ limit, cursor, status })}`,
+        );
+        break;
       case "get-settlement":
         if (!transactionId) throw new Error("transaction-id required");
-        result = await req("GET", `/settlement/transactions/${transactionId}`); break;
+        result = await req("GET", `/settlement/transactions/${transactionId}`);
+        break;
       case "affirm-settlement":
         if (!transactionId) throw new Error("transaction-id required");
-        result = await req("PUT", `/settlement/transactions/${transactionId}/affirm`, pb()); break;
+        result = await req(
+          "PUT",
+          `/settlement/transactions/${transactionId}/affirm`,
+          pb(),
+        );
+        break;
       case "cancel-settlement":
         if (!transactionId) throw new Error("transaction-id required");
-        result = await req("DELETE", `/settlement/transactions/${transactionId}`); break;
+        result = await req(
+          "DELETE",
+          `/settlement/transactions/${transactionId}`,
+        );
+        break;
 
       // ── Events ───────────────────────────────────────────────────
-      case "list-events": result = await req("GET", `/events${qs({ limit, cursor })}`); break;
+      case "list-events":
+        result = await req("GET", `/events${qs({ limit, cursor })}`);
+        break;
       case "get-event":
         if (!id) throw new Error("id required");
-        result = await req("GET", `/events/${id}`); break;
+        result = await req("GET", `/events/${id}`);
+        break;
 
       // ── Rewards / Claims ─────────────────────────────────────────
-      case "get-reward-details": result = await req("GET", `/rewards/details${qs({ profile_id: profileId })}`); break;
-      case "list-claims": result = await req("GET", `/rewards/claims${qs({ limit, cursor })}`); break;
-      case "create-claim-schedule": result = await req("POST", "/rewards/claim-schedules", pb()); break;
-      case "list-claim-schedules": result = await req("GET", `/rewards/claim-schedules${qs({ limit, cursor })}`); break;
+      case "get-reward-details":
+        result = await req(
+          "GET",
+          `/rewards/details${qs({ profile_id: profileId })}`,
+        );
+        break;
+      case "list-claims":
+        result = await req("GET", `/rewards/claims${qs({ limit, cursor })}`);
+        break;
+      case "create-claim-schedule":
+        result = await req("POST", "/rewards/claim-schedules", pb());
+        break;
+      case "list-claim-schedules":
+        result = await req(
+          "GET",
+          `/rewards/claim-schedules${qs({ limit, cursor })}`,
+        );
+        break;
       case "update-claim-schedule":
         if (!id) throw new Error("id required");
-        result = await req("PUT", `/rewards/claim-schedules/${id}`, pb()); break;
+        result = await req("PUT", `/rewards/claim-schedules/${id}`, pb());
+        break;
       case "delete-claim-schedule":
         if (!id) throw new Error("id required");
-        result = await req("DELETE", `/rewards/claim-schedules/${id}`); break;
+        result = await req("DELETE", `/rewards/claim-schedules/${id}`);
+        break;
 
       // ── Payout Groups ────────────────────────────────────────────
-      case "create-payout-group": result = await req("POST", "/rewards/payout-groups", pb()); break;
-      case "list-payout-groups": result = await req("GET", `/rewards/payout-groups${qs({ limit, cursor })}`); break;
+      case "create-payout-group":
+        result = await req("POST", "/rewards/payout-groups", pb());
+        break;
+      case "list-payout-groups":
+        result = await req(
+          "GET",
+          `/rewards/payout-groups${qs({ limit, cursor })}`,
+        );
+        break;
       case "update-payout-group":
         if (!id) throw new Error("id required");
-        result = await req("PUT", `/rewards/payout-groups/${id}`, pb()); break;
+        result = await req("PUT", `/rewards/payout-groups/${id}`, pb());
+        break;
       case "delete-payout-group":
         if (!id) throw new Error("id required");
-        result = await req("DELETE", `/rewards/payout-groups/${id}`); break;
+        result = await req("DELETE", `/rewards/payout-groups/${id}`);
+        break;
 
       // ── Monitoring Addresses ─────────────────────────────────────
-      case "create-monitoring-address": result = await req("POST", "/rewards/monitor/address", pb()); break;
-      case "list-monitoring-addresses": result = await req("GET", `/rewards/monitor/address${qs({ limit, cursor })}`); break;
+      case "create-monitoring-address":
+        result = await req("POST", "/rewards/monitor/address", pb());
+        break;
+      case "list-monitoring-addresses":
+        result = await req(
+          "GET",
+          `/rewards/monitor/address${qs({ limit, cursor })}`,
+        );
+        break;
       case "get-monitoring-address":
         if (!id) throw new Error("id required");
-        result = await req("GET", `/rewards/monitor/address/${id}`); break;
+        result = await req("GET", `/rewards/monitor/address/${id}`);
+        break;
       case "update-monitoring-address":
         if (!id) throw new Error("id required");
-        result = await req("PUT", `/rewards/monitor/address/${id}`, pb()); break;
+        result = await req("PUT", `/rewards/monitor/address/${id}`, pb());
+        break;
 
       // ── Reward Addresses ─────────────────────────────────────────
-      case "create-reward-address": result = await req("POST", "/rewards/addresses", pb()); break;
-      case "list-reward-addresses": result = await req("GET", `/rewards/addresses${qs({ limit, cursor })}`); break;
+      case "create-reward-address":
+        result = await req("POST", "/rewards/addresses", pb());
+        break;
+      case "list-reward-addresses":
+        result = await req("GET", `/rewards/addresses${qs({ limit, cursor })}`);
+        break;
       case "update-reward-address":
         if (!id) throw new Error("id required");
-        result = await req("PUT", `/rewards/addresses/${id}`, pb()); break;
+        result = await req("PUT", `/rewards/addresses/${id}`, pb());
+        break;
       case "delete-reward-address":
         if (!id) throw new Error("id required");
-        result = await req("DELETE", `/rewards/addresses/${id}`); break;
+        result = await req("DELETE", `/rewards/addresses/${id}`);
+        break;
 
       // ── Payments / Statements ────────────────────────────────────
-      case "list-payments": result = await req("GET", `/statements/payments${qs({ limit, cursor })}`); break;
-      case "list-statements": result = await req("GET", `/statements${qs({ limit, cursor })}`); break;
+      case "list-payments":
+        result = await req(
+          "GET",
+          `/statements/payments${qs({ limit, cursor })}`,
+        );
+        break;
+      case "list-statements":
+        result = await req("GET", `/statements${qs({ limit, cursor })}`);
+        break;
 
       // ── Tax ──────────────────────────────────────────────────────
-      case "list-tax-forms": result = await req("GET", `/tax/tax-forms${qs({ limit, cursor })}`); break;
-      case "list-tax-form-revisions": result = await req("GET", `/tax/tax-form-revisions${qs({ limit, cursor })}`); break;
+      case "list-tax-forms":
+        result = await req("GET", `/tax/tax-forms${qs({ limit, cursor })}`);
+        break;
+      case "list-tax-form-revisions":
+        result = await req(
+          "GET",
+          `/tax/tax-form-revisions${qs({ limit, cursor })}`,
+        );
+        break;
 
       // ── API Credentials ──────────────────────────────────────────
-      case "list-api-credentials": result = await req("GET", "/api-creds/credentials"); break;
+      case "list-api-credentials":
+        result = await req("GET", "/api-creds/credentials");
+        break;
       case "delete-api-credential":
         if (!id) throw new Error("id (client_id) required");
-        result = await req("DELETE", `/api-creds/credentials/${id}`); break;
+        result = await req("DELETE", `/api-creds/credentials/${id}`);
+        break;
 
       // ── Sandbox Utilities ────────────────────────────────────────
       case "sandbox-deposit":
         if (!profileId) throw new Error("profile-id required");
-        result = await req("POST", `/sandbox/profiles/${profileId}/deposit`, pb()); break;
-      case "sandbox-fiat-deposit": result = await req("POST", "/sandbox/fiat-deposits", pb()); break;
+        result = await req(
+          "POST",
+          `/sandbox/profiles/${profileId}/deposit`,
+          pb(),
+        );
+        break;
+      case "sandbox-fiat-deposit":
+        result = await req("POST", "/sandbox/fiat-deposits", pb());
+        break;
 
       default:
         throw new Error(`Unknown command: ${command}`);
@@ -28528,12 +28652,9 @@ async function run() {
 
     setJsonOutput("result", result);
   } catch (error) {
-    core.setFailed(error.message);
+    error_handleError(error);
   }
 }
 
 run();
 
-module.exports = __webpack_exports__;
-/******/ })()
-;
