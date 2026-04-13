@@ -1,0 +1,361 @@
+kind: integration
+name: Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading, settlement,
+  and orchestration
+version: 0.1.0
+repo: w3-io/w3-paxos-action
+partner: Paxos
+description: Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading,
+  settlement, and orchestration
+context: 'Paxos is the regulated infrastructure behind PYUSD (issued for PayPal),
+  USDP (Pax Dollar), and USDG (Global Dollar). This action provides institutional-grade
+  crypto operations: identity/KYC, custody, trading, stablecoin minting/redemption,
+  bilateral settlement, and automated orchestration workflows.
+
+
+  **Stablecoin operations:** Mint PYUSD/USDP from USD or redeem back to USD at 1:1
+  via create-conversion. This is how stablecoins are created and destroyed at the
+  issuer level — not a swap, but actual mint/burn. For on-chain PYUSD operations (transfer,
+  approve, balance), use the native ethereum/solana chain actions with addresses from
+  the PYUSD integration guide.
+
+
+  **Orchestration:** Automate complex asset movements. Create rules that trigger on
+  deposit: USD arrives → auto-convert to PYUSD → transfer to destination profile.
+  Or the reverse: PYUSD arrives → redeem to USD → wire to bank. One API call sets
+  up the recurring workflow. Use create-orchestration for one-off flows, create-orchestration-rule
+  for automated triggers.
+
+
+  **Trading:** Place market/limit orders on Paxos markets (BTC_USD, ETH_USD, etc.).
+  Execute held-rate quotes for guaranteed pricing. Issuer quotes for institutional
+  mint/redeem at Paxos''s rate.
+
+
+  **Settlement:** Bilateral OTC-style transactions. Create a settlement, counterparty
+  affirms, funds move. For institutional trading desks.
+
+
+  **Rewards:** Monitor addresses for stablecoin reward eligibility. Set up automated
+  claim schedules and payout groups.
+
+
+  **Key distinction from Iron/Stripe:** Paxos operates at the issuer level. Iron and
+  Stripe onramp end-users (fiat → crypto delivery). Paxos mints and redeems the stablecoins
+  themselves. Use Paxos for treasury/institutional operations. Use Iron/Stripe for
+  customer-facing on/off-ramp.
+
+
+  See the PYUSD integration guide for on-chain contract addresses. See the fiat-to-onchain
+  cookbook for combining Paxos mint with on-chain delivery.
+
+
+  109 commands total. OAuth2 client credentials auth. Sandbox: api.sandbox.paxos.com.
+  Production: api.paxos.com.
+
+  '
+commands:
+- name: create-conversion
+  description: 'Mint or redeem stablecoins at 1:1 with USD. This is issuer-level minting
+    — USD in your Paxos profile becomes PYUSD/USDP/USDG on-chain, or vice versa.
+
+    '
+  inputs:
+    body:
+      type: object
+      required: true
+      description: "{profile_id, amount, source_asset (USD|PYUSD|USDP|USDG),\n destination_asset,\
+        \ ref_id (optional idempotency key)}\n"
+  outputs:
+    result:
+      type: object
+      description: '{id, profile_id, amount, source_asset, destination_asset, status}'
+- name: list-conversions
+  description: List stablecoin conversions with optional filters.
+  inputs:
+    profile-id:
+      type: string
+      required: false
+      description: Filter by profile
+  outputs:
+    result:
+      type: object
+      description: '{items: [conversions]}'
+- name: get-conversion
+  description: Get conversion details.
+  inputs:
+    id:
+      type: string
+      required: true
+      description: Conversion ID
+  outputs:
+    result:
+      type: object
+      description: Full conversion with status, amounts, timestamps
+- name: create-profile
+  description: Create an asset profile (holds balances for trading, custody, transfers).
+  inputs:
+    body:
+      type: object
+      required: true
+      description: Profile params
+  outputs:
+    result:
+      type: object
+      description: '{id, type, name}'
+- name: list-profile-balances
+  description: Get all asset balances for a profile.
+  inputs:
+    profile-id:
+      type: string
+      required: true
+      description: Profile ID
+  outputs:
+    result:
+      type: object
+      description: '{items: [{asset, available, trading}]}'
+- name: get-profile-balance
+  description: Get balance for a specific asset.
+  inputs:
+    profile-id:
+      type: string
+      required: true
+      description: Profile ID
+    asset:
+      type: string
+      required: true
+      description: Asset code (USD, BTC, ETH, PYUSD, USDP, etc.)
+  outputs:
+    result:
+      type: object
+      description: '{asset, available, trading}'
+- name: create-deposit-address
+  description: Generate a blockchain address for receiving crypto deposits.
+  inputs:
+    body:
+      type: object
+      required: true
+      description: '{profile_id, crypto_network (ethereum, solana, bitcoin, etc.)}'
+  outputs:
+    result:
+      type: object
+      description: '{id, address, crypto_network, identity_id}'
+- name: create-crypto-withdrawal
+  description: Withdraw crypto to an external blockchain address.
+  inputs:
+    body:
+      type: object
+      required: true
+      description: '{profile_id, amount, asset, destination_address, crypto_network,
+        ref_id}'
+  outputs:
+    result:
+      type: object
+      description: '{id, amount, asset, status, fee}'
+- name: create-fiat-account
+  description: Register a bank account for wire transfers (Fedwire, SWIFT).
+  inputs:
+    body:
+      type: object
+      required: true
+      description: Bank account details (routing, account number, type)
+  outputs:
+    result:
+      type: object
+      description: '{id, status, account_details}'
+- name: create-fiat-deposit-instructions
+  description: Get wire deposit instructions for funding your profile.
+  inputs:
+    body:
+      type: object
+      required: true
+      description: '{profile_id, fiat_network_instructions}'
+  outputs:
+    result:
+      type: object
+      description: Wire instructions (bank, routing, reference)
+- name: create-fiat-withdrawal
+  description: Initiate a wire withdrawal to a registered bank account.
+  inputs:
+    body:
+      type: object
+      required: true
+      description: '{profile_id, fiat_account_id, amount, asset (USD), ref_id}'
+  outputs:
+    result:
+      type: object
+      description: '{id, amount, status}'
+- name: create-order
+  description: Place a market, limit, or post-only order.
+  inputs:
+    profile-id:
+      type: string
+      required: true
+      description: Profile ID
+    body:
+      type: object
+      required: true
+      description: '{market, side (BUY|SELL), type (MARKET|LIMIT), amount, price (for
+        limit)}'
+  outputs:
+    result:
+      type: object
+      description: '{id, market, side, type, status, amount, price}'
+- name: cancel-order
+  description: Cancel an open order.
+  inputs:
+    profile-id:
+      type: string
+      required: true
+      description: Profile ID
+    order-id:
+      type: string
+      required: true
+      description: Order ID
+  outputs:
+    result:
+      type: object
+      description: Cancelled order
+- name: list-executions
+  description: List trade executions (fills).
+  inputs:
+    profile-id:
+      type: string
+      required: false
+      description: Profile ID (omit for global)
+  outputs:
+    result:
+      type: object
+      description: '{items: [{id, order_id, market, side, price, amount}]}'
+- name: list-markets
+  description: List available trading pairs (BTC_USD, ETH_USD, etc.).
+  outputs:
+    result:
+      type: object
+      description: '{markets: [{market, exchange, base_asset, quote_asset}]}'
+- name: get-ticker
+  description: Get 24-hour ticker statistics for a market.
+  inputs:
+    market:
+      type: string
+      required: true
+      description: Market pair (e.g. BTC_USD)
+  outputs:
+    result:
+      type: object
+      description: '{market, best_bid, best_ask, last_execution, volume_24h}'
+- name: list-prices
+  description: Get current prices across all markets.
+  outputs:
+    result:
+      type: object
+      description: '{items: [{market, price, timestamp}]}'
+- name: create-orchestration
+  description: 'Create an automated asset movement workflow. Mint, redeem, or transfer
+    with conversion in a single operation. USD → PYUSD → send, or receive PYUSD →
+    USD → wire out.
+
+    '
+  inputs:
+    body:
+      type: object
+      required: true
+      description: Orchestration params (source_profile, destination, asset, amount)
+  outputs:
+    result:
+      type: object
+      description: '{id, status, steps}'
+- name: create-orchestration-rule
+  description: 'Create an auto-trigger rule. When deposits arrive at a profile, automatically
+    convert and/or transfer. Set up once, runs on every deposit.
+
+    '
+  inputs:
+    body:
+      type: object
+      required: true
+      description: Rule params (profile_id, trigger conditions, actions)
+  outputs:
+    result:
+      type: object
+      description: '{id, profile_id, rule_type}'
+- name: create-settlement
+  description: Create a bilateral OTC settlement transaction.
+  inputs:
+    body:
+      type: object
+      required: true
+      description: Settlement params (counterparty, asset, amount)
+  outputs:
+    result:
+      type: object
+      description: '{id, status, asset, amount}'
+- name: affirm-settlement
+  description: Affirm (approve) a settlement transaction.
+  inputs:
+    transaction-id:
+      type: string
+      required: true
+      description: Settlement transaction ID
+  outputs:
+    result:
+      type: object
+      description: Affirmed settlement
+- name: create-identity
+  description: Create a person or institution identity for KYC.
+  inputs:
+    body:
+      type: object
+      required: true
+      description: Identity params (type, person/institution details)
+  outputs:
+    result:
+      type: object
+      description: '{id, type, status}'
+- name: get-identity
+  description: Get identity details and KYC status.
+  inputs:
+    identity-id:
+      type: string
+      required: true
+      description: Identity ID
+  outputs:
+    result:
+      type: object
+      description: Full identity with status, details, documents
+- name: get-reward-details
+  description: Get stablecoin reward eligibility and details.
+  inputs:
+    profile-id:
+      type: string
+      required: false
+      description: Profile ID
+  outputs:
+    result:
+      type: object
+      description: Reward details and eligible amounts
+- name: create-claim-schedule
+  description: Set up automated reward claiming on a schedule.
+  inputs:
+    body:
+      type: object
+      required: true
+      description: Schedule params
+  outputs:
+    result:
+      type: object
+      description: '{id, schedule, status}'
+- name: sandbox-deposit
+  description: Simulate a crypto deposit in sandbox.
+  inputs:
+    profile-id:
+      type: string
+      required: true
+      description: Profile ID
+    body:
+      type: object
+      required: true
+      description: '{asset, amount, crypto_network}'
+  outputs:
+    result:
+      type: object
+      description: Simulated deposit
