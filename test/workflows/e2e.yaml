@@ -12,297 +12,306 @@
 #   - Uses Paxos sandbox URLs by default
 
 name: paxos-e2e
+on:
+  workflow_dispatch: {}
 
-steps:
-  # ── Identity ───────────────────────────────────────────────────────────
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # ── Identity ───────────────────────────────────────────────────────────
 
-  - name: Create an identity
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: create-identity
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      body: '{"first_name":"E2E","last_name":"Test","email":"e2e-test@example.com","date_of_birth":"1990-01-01"}'
+      - name: Create an identity
+        id: create-an-identity
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: create-identity
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          body: '{"first_name":"E2E","last_name":"Test","email":"e2e-test@example.com","date_of_birth":"1990-01-01"}'
 
-  - name: List identities
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-identities
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      limit: "5"
+      - name: List identities
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-identities
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          limit: "5"
 
-  - name: Get the identity
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: get-identity
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      identity-id: ${{ steps.create-an-identity.outputs.result.id }}
+      - name: Get the identity
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: get-identity
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          identity-id: ${{ steps.create-an-identity.outputs.result.id }}
 
-  - name: Sandbox set identity status to approved
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: sandbox-set-identity-status
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      identity-id: ${{ steps.create-an-identity.outputs.result.id }}
-      body: '{"status":"APPROVED"}'
+      - name: Sandbox set identity status to approved
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: sandbox-set-identity-status
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          identity-id: ${{ steps.create-an-identity.outputs.result.id }}
+          body: '{"status":"APPROVED"}'
 
-  # ── Accounts ───────────────────────────────────────────────────────────
+      # ── Accounts ───────────────────────────────────────────────────────────
 
-  - name: Create an account
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: create-account
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      body: '{"identity_id":"${{ steps.create-an-identity.outputs.result.id }}","type":"INDIVIDUAL"}'
+      - name: Create an account
+        id: create-an-account
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: create-account
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          body: '{"identity_id":"${{ steps.create-an-identity.outputs.result.id }}","type":"INDIVIDUAL"}'
 
-  - name: List accounts
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-accounts
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List accounts
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-accounts
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  - name: Get the account
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: get-account
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      account-id: ${{ steps.create-an-account.outputs.result.id }}
+      - name: Get the account
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: get-account
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          account-id: ${{ steps.create-an-account.outputs.result.id }}
 
-  # ── Profiles ───────────────────────────────────────────────────────────
+      # ── Profiles ───────────────────────────────────────────────────────────
 
-  - name: Create a profile
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: create-profile
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      body: '{"account_id":"${{ steps.create-an-account.outputs.result.id }}","name":"E2E Test Profile"}'
+      - name: Create a profile
+        id: create-a-profile
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: create-profile
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          body: '{"account_id":"${{ steps.create-an-account.outputs.result.id }}","name":"E2E Test Profile"}'
 
-  - name: List profiles
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-profiles
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List profiles
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-profiles
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  - name: Get the profile
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: get-profile
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: Get the profile
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: get-profile
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  - name: List profile balances
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-profile-balances
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: List profile balances
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-profile-balances
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  # ── Sandbox Funding ────────────────────────────────────────────────────
+      # ── Sandbox Funding ────────────────────────────────────────────────────
 
-  - name: Sandbox deposit USD
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: sandbox-deposit
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
-      asset: USD
-      body: '{"amount":"1000"}'
+      - name: Sandbox deposit USD
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: sandbox-deposit
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+          asset: USD
+          body: '{"amount":"1000"}'
 
-  - name: Sandbox fiat deposit
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: sandbox-fiat-deposit
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
-      body: '{"amount":"500","asset":"USD"}'
+      - name: Sandbox fiat deposit
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: sandbox-fiat-deposit
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+          body: '{"amount":"500","asset":"USD"}'
 
-  # ── Market Data ────────────────────────────────────────────────────────
+      # ── Market Data ────────────────────────────────────────────────────────
 
-  - name: List markets
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-markets
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List markets
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-markets
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  - name: Get BTC/USD ticker
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: get-ticker
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      market: BTC_USD
+      - name: Get BTC/USD ticker
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: get-ticker
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          market: BTC_USD
 
-  - name: Get BTC/USD order book
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: get-order-book
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      market: BTC_USD
+      - name: Get BTC/USD order book
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: get-order-book
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          market: BTC_USD
 
-  - name: List prices
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-prices
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List prices
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-prices
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  - name: List tickers
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-tickers
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List tickers
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-tickers
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  - name: List recent executions
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-recent-executions
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      market: BTC_USD
+      - name: List recent executions
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-recent-executions
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          market: BTC_USD
 
-  # ── Trading ────────────────────────────────────────────────────────────
+      # ── Trading ────────────────────────────────────────────────────────────
 
-  - name: Create a limit order
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: create-order
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
-      market: BTC_USD
-      body: '{"side":"BUY","type":"LIMIT","price":"10000","amount":"0.001","time_in_force":"GTC"}'
+      - name: Create a limit order
+        id: create-a-limit-order
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: create-order
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+          market: BTC_USD
+          body: '{"side":"BUY","type":"LIMIT","price":"10000","amount":"0.001","time_in_force":"GTC"}'
 
-  - name: List orders
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-orders
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: List orders
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-orders
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  - name: Cancel the order
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: cancel-order
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
-      order-id: ${{ steps.create-a-limit-order.outputs.result.id }}
+      - name: Cancel the order
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: cancel-order
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+          order-id: ${{ steps.create-a-limit-order.outputs.result.id }}
 
-  # ── Transfers ──────────────────────────────────────────────────────────
+      # ── Transfers ──────────────────────────────────────────────────────────
 
-  - name: List transfers
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-transfers
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: List transfers
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-transfers
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  - name: List transfer limits
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-transfer-limits
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: List transfer limits
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-transfer-limits
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  # ── Conversions (Stablecoin) ───────────────────────────────────────────
+      # ── Conversions (Stablecoin) ───────────────────────────────────────────
 
-  - name: List conversions
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-conversions
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: List conversions
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-conversions
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  # ── Crypto Deposits ────────────────────────────────────────────────────
+      # ── Crypto Deposits ────────────────────────────────────────────────────
 
-  - name: Create a deposit address
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: create-deposit-address
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
-      body: '{"crypto_network":"ETHEREUM","asset":"ETH"}'
+      - name: Create a deposit address
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: create-deposit-address
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+          body: '{"crypto_network":"ETHEREUM","asset":"ETH"}'
 
-  - name: List deposit addresses
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-deposit-addresses
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: List deposit addresses
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-deposit-addresses
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  # ── Fiat Accounts ──────────────────────────────────────────────────────
+      # ── Fiat Accounts ──────────────────────────────────────────────────────
 
-  - name: List fiat accounts
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-fiat-accounts
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: List fiat accounts
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-fiat-accounts
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
 
-  # ── Orchestration ──────────────────────────────────────────────────────
+      # ── Orchestration ──────────────────────────────────────────────────────
 
-  - name: List orchestrations
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-orchestrations
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List orchestrations
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-orchestrations
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  # ── Events ─────────────────────────────────────────────────────────────
+      # ── Events ─────────────────────────────────────────────────────────────
 
-  - name: List events
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-events
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List events
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-events
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  # ── Tax ────────────────────────────────────────────────────────────────
+      # ── Tax ────────────────────────────────────────────────────────────────
 
-  - name: List tax forms
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-tax-forms
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List tax forms
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-tax-forms
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  # ── API Credentials ────────────────────────────────────────────────────
+      # ── API Credentials ────────────────────────────────────────────────────
 
-  - name: List API credentials
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: list-api-credentials
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+      - name: List API credentials
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: list-api-credentials
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
 
-  # ── Cleanup ────────────────────────────────────────────────────────────
+      # ── Cleanup ────────────────────────────────────────────────────────────
 
-  - name: Deactivate the profile
-    uses: w3-io/w3-paxos-action@v0
-    with:
-      command: deactivate-profile
-      client-id: ${{ secrets.PAXOS_CLIENT_ID }}
-      client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
-      profile-id: ${{ steps.create-a-profile.outputs.result.id }}
+      - name: Deactivate the profile
+        uses: w3-io/w3-paxos-action@v0
+        with:
+          command: deactivate-profile
+          client-id: ${{ secrets.PAXOS_CLIENT_ID }}
+          client-secret: ${{ secrets.PAXOS_CLIENT_SECRET }}
+          profile-id: ${{ steps.create-a-profile.outputs.result.id }}
