@@ -1,12 +1,15 @@
 kind: integration
-name: Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading, settlement,
+name:
+  Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading, settlement,
   and orchestration
 version: 0.1.0
 repo: w3-io/w3-paxos-action
 partner: Paxos
-description: Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading,
+description:
+  Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading,
   settlement, and orchestration
-context: 'Paxos is the regulated infrastructure behind PYUSD (issued for PayPal),
+context:
+  "Paxos is the regulated infrastructure behind PYUSD (issued for PayPal),
   USDP (Pax Dollar), and USDG (Global Dollar). This action provides institutional-grade
   crypto operations: identity/KYC, custody, trading, stablecoin minting/redemption,
   bilateral settlement, and automated orchestration workflows.
@@ -28,7 +31,7 @@ context: 'Paxos is the regulated infrastructure behind PYUSD (issued for PayPal)
 
   **Trading:** Place market/limit orders on Paxos markets (BTC_USD, ETH_USD, etc.).
   Execute held-rate quotes for guaranteed pricing. Issuer quotes for institutional
-  mint/redeem at Paxos''s rate.
+  mint/redeem at Paxos's rate.
 
 
   **Settlement:** Bilateral OTC-style transactions. Create a settlement, counterparty
@@ -52,310 +55,1530 @@ context: 'Paxos is the regulated infrastructure behind PYUSD (issued for PayPal)
   109 commands total. OAuth2 client credentials auth. Sandbox: api.sandbox.paxos.com.
   Production: api.paxos.com.
 
-  '
+  "
 commands:
-- name: create-conversion
-  description: 'Mint or redeem stablecoins at 1:1 with USD. This is issuer-level minting
-    — USD in your Paxos profile becomes PYUSD/USDP/USDG on-chain, or vice versa.
+  # ── Identity ─────────────────────────────────────────────────
+  - name: create-identity
+    description: Create a person or institution identity for KYC.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Identity params (type, person/institution details)
+    outputs:
+      result:
+        type: object
+        description: "{id, type, status}"
+  - name: list-identities
+    description: List identities with pagination.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [identities]}"
+  - name: get-identity
+    description: Get identity details and KYC status.
+    inputs:
+      identity-id:
+        type: string
+        required: true
+        description: Identity ID
+    outputs:
+      result:
+        type: object
+        description: Full identity with status, details, documents
+  - name: update-identity
+    description: Update an existing identity.
+    inputs:
+      identity-id:
+        type: string
+        required: true
+        description: Identity ID
+      body:
+        type: object
+        required: true
+        description: Updated identity params
+    outputs:
+      result:
+        type: object
+        description: Updated identity
+  - name: upload-document
+    description: Upload a KYC document to an identity.
+    inputs:
+      identity-id:
+        type: string
+        required: true
+        description: Identity ID
+      body:
+        type: object
+        required: true
+        description: Document params (type, content)
+    outputs:
+      result:
+        type: object
+        description: Uploaded document
+  - name: list-documents
+    description: List documents for an identity.
+    inputs:
+      identity-id:
+        type: string
+        required: true
+        description: Identity ID
+    outputs:
+      result:
+        type: object
+        description: "{items: [documents]}"
+  - name: sandbox-set-identity-status
+    description: Set identity KYC status in sandbox (for testing).
+    inputs:
+      identity-id:
+        type: string
+        required: true
+        description: Identity ID
+      body:
+        type: object
+        required: true
+        description: "{status}"
+    outputs:
+      result:
+        type: object
+        description: Updated identity status
 
-    '
-  inputs:
-    body:
-      type: object
-      required: true
-      description: "{profile_id, amount, source_asset (USD|PYUSD|USDP|USDG),\n destination_asset,\
-        \ ref_id (optional idempotency key)}\n"
-  outputs:
-    result:
-      type: object
-      description: '{id, profile_id, amount, source_asset, destination_asset, status}'
-- name: list-conversions
-  description: List stablecoin conversions with optional filters.
-  inputs:
-    profile-id:
-      type: string
-      required: false
-      description: Filter by profile
-  outputs:
-    result:
-      type: object
-      description: '{items: [conversions]}'
-- name: get-conversion
-  description: Get conversion details.
-  inputs:
-    id:
-      type: string
-      required: true
-      description: Conversion ID
-  outputs:
-    result:
-      type: object
-      description: Full conversion with status, amounts, timestamps
-- name: create-profile
-  description: Create an asset profile (holds balances for trading, custody, transfers).
-  inputs:
-    body:
-      type: object
-      required: true
-      description: Profile params
-  outputs:
-    result:
-      type: object
-      description: '{id, type, name}'
-- name: list-profile-balances
-  description: Get all asset balances for a profile.
-  inputs:
-    profile-id:
-      type: string
-      required: true
-      description: Profile ID
-  outputs:
-    result:
-      type: object
-      description: '{items: [{asset, available, trading}]}'
-- name: get-profile-balance
-  description: Get balance for a specific asset.
-  inputs:
-    profile-id:
-      type: string
-      required: true
-      description: Profile ID
-    asset:
-      type: string
-      required: true
-      description: Asset code (USD, BTC, ETH, PYUSD, USDP, etc.)
-  outputs:
-    result:
-      type: object
-      description: '{asset, available, trading}'
-- name: create-deposit-address
-  description: Generate a blockchain address for receiving crypto deposits.
-  inputs:
-    body:
-      type: object
-      required: true
-      description: '{profile_id, crypto_network (ethereum, solana, bitcoin, etc.)}'
-  outputs:
-    result:
-      type: object
-      description: '{id, address, crypto_network, identity_id}'
-- name: create-crypto-withdrawal
-  description: Withdraw crypto to an external blockchain address.
-  inputs:
-    body:
-      type: object
-      required: true
-      description: '{profile_id, amount, asset, destination_address, crypto_network,
-        ref_id}'
-  outputs:
-    result:
-      type: object
-      description: '{id, amount, asset, status, fee}'
-- name: create-fiat-account
-  description: Register a bank account for wire transfers (Fedwire, SWIFT).
-  inputs:
-    body:
-      type: object
-      required: true
-      description: Bank account details (routing, account number, type)
-  outputs:
-    result:
-      type: object
-      description: '{id, status, account_details}'
-- name: create-fiat-deposit-instructions
-  description: Get wire deposit instructions for funding your profile.
-  inputs:
-    body:
-      type: object
-      required: true
-      description: '{profile_id, fiat_network_instructions}'
-  outputs:
-    result:
-      type: object
-      description: Wire instructions (bank, routing, reference)
-- name: create-fiat-withdrawal
-  description: Initiate a wire withdrawal to a registered bank account.
-  inputs:
-    body:
-      type: object
-      required: true
-      description: '{profile_id, fiat_account_id, amount, asset (USD), ref_id}'
-  outputs:
-    result:
-      type: object
-      description: '{id, amount, status}'
-- name: create-order
-  description: Place a market, limit, or post-only order.
-  inputs:
-    profile-id:
-      type: string
-      required: true
-      description: Profile ID
-    body:
-      type: object
-      required: true
-      description: '{market, side (BUY|SELL), type (MARKET|LIMIT), amount, price (for
-        limit)}'
-  outputs:
-    result:
-      type: object
-      description: '{id, market, side, type, status, amount, price}'
-- name: cancel-order
-  description: Cancel an open order.
-  inputs:
-    profile-id:
-      type: string
-      required: true
-      description: Profile ID
-    order-id:
-      type: string
-      required: true
-      description: Order ID
-  outputs:
-    result:
-      type: object
-      description: Cancelled order
-- name: list-executions
-  description: List trade executions (fills).
-  inputs:
-    profile-id:
-      type: string
-      required: false
-      description: Profile ID (omit for global)
-  outputs:
-    result:
-      type: object
-      description: '{items: [{id, order_id, market, side, price, amount}]}'
-- name: list-markets
-  description: List available trading pairs (BTC_USD, ETH_USD, etc.).
-  outputs:
-    result:
-      type: object
-      description: '{markets: [{market, exchange, base_asset, quote_asset}]}'
-- name: get-ticker
-  description: Get 24-hour ticker statistics for a market.
-  inputs:
-    market:
-      type: string
-      required: true
-      description: Market pair (e.g. BTC_USD)
-  outputs:
-    result:
-      type: object
-      description: '{market, best_bid, best_ask, last_execution, volume_24h}'
-- name: list-prices
-  description: Get current prices across all markets.
-  outputs:
-    result:
-      type: object
-      description: '{items: [{market, price, timestamp}]}'
-- name: create-orchestration
-  description: 'Create an automated asset movement workflow. Mint, redeem, or transfer
-    with conversion in a single operation. USD → PYUSD → send, or receive PYUSD →
-    USD → wire out.
+  # ── Identity Controls ────────────────────────────────────────
+  - name: create-identity-control
+    description: Create an identity access control rule.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Control params
+    outputs:
+      result:
+        type: object
+        description: "{id, identity_id, type}"
+  - name: list-identity-controls
+    description: List identity controls with pagination.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [controls]}"
+  - name: delete-identity-control
+    description: Delete an identity control by ID.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Control ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
 
-    '
-  inputs:
-    body:
-      type: object
-      required: true
-      description: Orchestration params (source_profile, destination, asset, amount)
-  outputs:
-    result:
-      type: object
-      description: '{id, status, steps}'
-- name: create-orchestration-rule
-  description: 'Create an auto-trigger rule. When deposits arrive at a profile, automatically
-    convert and/or transfer. Set up once, runs on every deposit.
+  # ── Institution Members ──────────────────────────────────────
+  - name: add-institution-member
+    description: Add a member to an institution identity.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{identity_id, person_identity_id, role}"
+    outputs:
+      result:
+        type: object
+        description: Created member
+  - name: remove-institution-member
+    description: Remove a member from an institution.
+    inputs:
+      member-id:
+        type: string
+        required: true
+        description: Member ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
 
-    '
-  inputs:
-    body:
-      type: object
-      required: true
-      description: Rule params (profile_id, trigger conditions, actions)
-  outputs:
-    result:
-      type: object
-      description: '{id, profile_id, rule_type}'
-- name: create-settlement
-  description: Create a bilateral OTC settlement transaction.
-  inputs:
-    body:
-      type: object
-      required: true
-      description: Settlement params (counterparty, asset, amount)
-  outputs:
-    result:
-      type: object
-      description: '{id, status, asset, amount}'
-- name: affirm-settlement
-  description: Affirm (approve) a settlement transaction.
-  inputs:
-    transaction-id:
-      type: string
-      required: true
-      description: Settlement transaction ID
-  outputs:
-    result:
-      type: object
-      description: Affirmed settlement
-- name: create-identity
-  description: Create a person or institution identity for KYC.
-  inputs:
-    body:
-      type: object
-      required: true
-      description: Identity params (type, person/institution details)
-  outputs:
-    result:
-      type: object
-      description: '{id, type, status}'
-- name: get-identity
-  description: Get identity details and KYC status.
-  inputs:
-    identity-id:
-      type: string
-      required: true
-      description: Identity ID
-  outputs:
-    result:
-      type: object
-      description: Full identity with status, details, documents
-- name: get-reward-details
-  description: Get stablecoin reward eligibility and details.
-  inputs:
-    profile-id:
-      type: string
-      required: false
-      description: Profile ID
-  outputs:
-    result:
-      type: object
-      description: Reward details and eligible amounts
-- name: create-claim-schedule
-  description: Set up automated reward claiming on a schedule.
-  inputs:
-    body:
-      type: object
-      required: true
-      description: Schedule params
-  outputs:
-    result:
-      type: object
-      description: '{id, schedule, status}'
-- name: sandbox-deposit
-  description: Simulate a crypto deposit in sandbox.
-  inputs:
-    profile-id:
-      type: string
-      required: true
-      description: Profile ID
-    body:
-      type: object
-      required: true
-      description: '{asset, amount, crypto_network}'
-  outputs:
-    result:
-      type: object
-      description: Simulated deposit
+  # ── Accounts ─────────────────────────────────────────────────
+  - name: create-account
+    description: Create a Paxos account.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Account params
+    outputs:
+      result:
+        type: object
+        description: "{id, identity_id, type}"
+  - name: list-accounts
+    description: List accounts with pagination.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [accounts]}"
+  - name: get-account
+    description: Get account details by ID.
+    inputs:
+      account-id:
+        type: string
+        required: true
+        description: Account ID
+    outputs:
+      result:
+        type: object
+        description: Full account details
+  - name: update-account
+    description: Update an existing account.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Updated account params
+    outputs:
+      result:
+        type: object
+        description: Updated account
+
+  # ── Account Members ──────────────────────────────────────────
+  - name: add-account-member
+    description: Add a member to an account.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{account_id, identity_id, role}"
+    outputs:
+      result:
+        type: object
+        description: Created account member
+  - name: remove-account-member
+    description: Remove a member from an account.
+    inputs:
+      member-id:
+        type: string
+        required: true
+        description: Member ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
+
+  # ── Profiles ─────────────────────────────────────────────────
+  - name: create-profile
+    description: Create an asset profile (holds balances for trading, custody, transfers).
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Profile params
+    outputs:
+      result:
+        type: object
+        description: "{id, type, name}"
+  - name: list-profiles
+    description: List profiles with pagination.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [profiles]}"
+  - name: get-profile
+    description: Get profile details by ID.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+    outputs:
+      result:
+        type: object
+        description: Full profile details
+  - name: update-profile
+    description: Update a profile.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      body:
+        type: object
+        required: true
+        description: Updated profile params
+    outputs:
+      result:
+        type: object
+        description: Updated profile
+  - name: deactivate-profile
+    description: Deactivate a profile.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      body:
+        type: object
+        required: true
+        description: Deactivation params
+    outputs:
+      result:
+        type: object
+        description: Deactivated profile
+  - name: list-profile-balances
+    description: Get all asset balances for a profile.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+    outputs:
+      result:
+        type: object
+        description: "{items: [{asset, available, trading}]}"
+  - name: get-profile-balance
+    description: Get balance for a specific asset.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      asset:
+        type: string
+        required: true
+        description: Asset code (USD, BTC, ETH, PYUSD, USDP, etc.)
+    outputs:
+      result:
+        type: object
+        description: "{asset, available, trading}"
+
+  # ── Deposit Addresses ────────────────────────────────────────
+  - name: create-deposit-address
+    description: Generate a blockchain address for receiving crypto deposits.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{profile_id, crypto_network (ethereum, solana, bitcoin, etc.)}"
+    outputs:
+      result:
+        type: object
+        description: "{id, address, crypto_network, identity_id}"
+  - name: list-deposit-addresses
+    description: List deposit addresses with optional profile filter.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Filter by profile
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [deposit_addresses]}"
+
+  # ── Crypto Deposits ──────────────────────────────────────────
+  - name: update-crypto-deposit
+    description: Update a pending crypto deposit (e.g. assign to profile).
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Deposit ID
+      body:
+        type: object
+        required: true
+        description: Update params
+    outputs:
+      result:
+        type: object
+        description: Updated deposit
+  - name: reject-crypto-deposit
+    description: Reject a pending crypto deposit.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Deposit ID
+      body:
+        type: object
+        required: true
+        description: Rejection params
+    outputs:
+      result:
+        type: object
+        description: Rejected deposit
+
+  # ── Crypto Withdrawals ───────────────────────────────────────
+  - name: create-crypto-withdrawal
+    description: Withdraw crypto to an external blockchain address.
+    inputs:
+      body:
+        type: object
+        required: true
+        description:
+          "{profile_id, amount, asset, destination_address, crypto_network,
+          ref_id}"
+    outputs:
+      result:
+        type: object
+        description: "{id, amount, asset, status, fee}"
+  - name: list-crypto-destination-addresses
+    description: List approved crypto withdrawal destination addresses.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Filter by profile
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [destination_addresses]}"
+  - name: put-crypto-destination-address
+    description: Create or update a crypto destination address.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{profile_id, address, crypto_network}"
+    outputs:
+      result:
+        type: object
+        description: Destination address details
+  - name: create-withdrawal-fee
+    description: Calculate the fee for a crypto withdrawal.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{profile_id, asset, crypto_network, amount}"
+    outputs:
+      result:
+        type: object
+        description: "{fee, asset}"
+
+  # ── Fiat Transfers ───────────────────────────────────────────
+  - name: create-fiat-account
+    description: Register a bank account for wire transfers (Fedwire, SWIFT).
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Bank account details (routing, account number, type)
+    outputs:
+      result:
+        type: object
+        description: "{id, status, account_details}"
+  - name: list-fiat-accounts
+    description: List registered fiat (bank) accounts.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Filter by profile
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [fiat_accounts]}"
+  - name: get-fiat-account
+    description: Get fiat account details by ID.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Fiat account ID
+    outputs:
+      result:
+        type: object
+        description: Full fiat account details
+  - name: update-fiat-account
+    description: Update a fiat account.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Fiat account ID
+      body:
+        type: object
+        required: true
+        description: Updated account details
+    outputs:
+      result:
+        type: object
+        description: Updated fiat account
+  - name: delete-fiat-account
+    description: Delete a registered fiat account.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Fiat account ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
+  - name: create-fiat-deposit-instructions
+    description: Get wire deposit instructions for funding your profile.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{profile_id, fiat_network_instructions}"
+    outputs:
+      result:
+        type: object
+        description: Wire instructions (bank, routing, reference)
+  - name: list-fiat-deposit-instructions
+    description: List fiat deposit instructions.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Filter by profile
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [deposit_instructions]}"
+  - name: get-fiat-deposit-instructions
+    description: Get fiat deposit instructions by ID.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Instructions ID
+    outputs:
+      result:
+        type: object
+        description: Full deposit instructions
+  - name: create-fiat-withdrawal
+    description: Initiate a wire withdrawal to a registered bank account.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{profile_id, fiat_account_id, amount, asset (USD), ref_id}"
+    outputs:
+      result:
+        type: object
+        description: "{id, amount, status}"
+
+  # ── Internal / Paxos Transfers ───────────────────────────────
+  - name: create-internal-transfer
+    description: Transfer funds between profiles within the same institution.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{source_profile_id, destination_profile_id, amount, asset}"
+    outputs:
+      result:
+        type: object
+        description: "{id, amount, asset, status}"
+  - name: create-paxos-transfer
+    description: Transfer funds between Paxos customers.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{source_profile_id, destination_profile_id, amount, asset}"
+    outputs:
+      result:
+        type: object
+        description: "{id, amount, asset, status}"
+
+  # ── Transfers (Read) ─────────────────────────────────────────
+  - name: list-transfers
+    description: List all transfers with optional filters.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Filter by profile
+      status:
+        type: string
+        required: false
+        description: Filter by status
+      ref-id:
+        type: string
+        required: false
+        description: Filter by reference ID
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [transfers]}"
+  - name: get-transfer
+    description: Get transfer details by ID.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Transfer ID
+    outputs:
+      result:
+        type: object
+        description: Full transfer details with status and timestamps
+
+  # ── Limits ───────────────────────────────────────────────────
+  - name: list-transfer-limits
+    description: Get transfer limit utilizations for a profile.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Profile ID
+    outputs:
+      result:
+        type: object
+        description: "{items: [limit_utilizations]}"
+
+  # ── Stablecoin Conversion ────────────────────────────────────
+  - name: create-conversion
+    description:
+      "Mint or redeem stablecoins at 1:1 with USD. This is issuer-level minting
+      — USD in your Paxos profile becomes PYUSD/USDP/USDG on-chain, or vice versa.
+
+      "
+    inputs:
+      body:
+        type: object
+        required: true
+        description:
+          "{profile_id, amount, source_asset (USD|PYUSD|USDP|USDG),\n destination_asset,\
+          \ ref_id (optional idempotency key)}\n"
+    outputs:
+      result:
+        type: object
+        description: "{id, profile_id, amount, source_asset, destination_asset, status}"
+  - name: list-conversions
+    description: List stablecoin conversions with optional filters.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Filter by profile
+      status:
+        type: string
+        required: false
+        description: Filter by status
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [conversions]}"
+  - name: get-conversion
+    description: Get conversion details.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Conversion ID
+    outputs:
+      result:
+        type: object
+        description: Full conversion with status, amounts, timestamps
+  - name: cancel-conversion
+    description: Cancel a pending conversion.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Conversion ID
+    outputs:
+      result:
+        type: object
+        description: Cancelled conversion
+
+  # ── Market Data ──────────────────────────────────────────────
+  - name: list-markets
+    description: List available trading pairs (BTC_USD, ETH_USD, etc.).
+    outputs:
+      result:
+        type: object
+        description: "{markets: [{market, exchange, base_asset, quote_asset}]}"
+  - name: get-order-book
+    description: Get the order book for a market.
+    inputs:
+      market:
+        type: string
+        required: true
+        description: Market pair (e.g. BTC_USD)
+    outputs:
+      result:
+        type: object
+        description: "{bids: [...], asks: [...]}"
+  - name: get-ticker
+    description: Get 24-hour ticker statistics for a market.
+    inputs:
+      market:
+        type: string
+        required: true
+        description: Market pair (e.g. BTC_USD)
+    outputs:
+      result:
+        type: object
+        description: "{market, best_bid, best_ask, last_execution, volume_24h}"
+  - name: list-recent-executions
+    description: List recent trade executions for a market.
+    inputs:
+      market:
+        type: string
+        required: true
+        description: Market pair (e.g. BTC_USD)
+      limit:
+        type: string
+        required: false
+        description: Page size
+    outputs:
+      result:
+        type: object
+        description: "{items: [{price, amount, timestamp}]}"
+  - name: list-historical-prices
+    description: List historical prices for a market.
+    inputs:
+      market:
+        type: string
+        required: true
+        description: Market pair (e.g. BTC_USD)
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [{price, timestamp}]}"
+  - name: list-prices
+    description: Get current prices across all markets.
+    outputs:
+      result:
+        type: object
+        description: "{items: [{market, price, timestamp}]}"
+  - name: list-tickers
+    description: Get 24-hour ticker stats across all markets.
+    outputs:
+      result:
+        type: object
+        description: "{items: [{market, best_bid, best_ask, volume_24h}]}"
+
+  # ── Orders ───────────────────────────────────────────────────
+  - name: create-order
+    description: Place a market, limit, or post-only order.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      body:
+        type: object
+        required: true
+        description:
+          "{market, side (BUY|SELL), type (MARKET|LIMIT), amount, price (for
+          limit)}"
+    outputs:
+      result:
+        type: object
+        description: "{id, market, side, type, status, amount, price}"
+  - name: list-orders
+    description: List orders, optionally scoped to a profile.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Profile ID (omit for global)
+      status:
+        type: string
+        required: false
+        description: Filter by status
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [orders]}"
+  - name: get-order
+    description: Get order details.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      order-id:
+        type: string
+        required: true
+        description: Order ID
+    outputs:
+      result:
+        type: object
+        description: Full order with status, fills, timestamps
+  - name: cancel-order
+    description: Cancel an open order.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      order-id:
+        type: string
+        required: true
+        description: Order ID
+    outputs:
+      result:
+        type: object
+        description: Cancelled order
+  - name: list-executions
+    description: List trade executions (fills), optionally scoped to a profile.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Profile ID (omit for global)
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [{id, order_id, market, side, price, amount}]}"
+
+  # ── Quotes ───────────────────────────────────────────────────
+  - name: list-quotes
+    description: List held-rate quotes.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [quotes]}"
+  - name: create-quote-execution
+    description: Execute a held-rate quote at the guaranteed price.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      body:
+        type: object
+        required: true
+        description: Quote execution params
+    outputs:
+      result:
+        type: object
+        description: "{id, quote_id, status}"
+  - name: list-quote-executions
+    description: List quote executions for a profile.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [quote_executions]}"
+  - name: get-quote-execution
+    description: Get quote execution details.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      id:
+        type: string
+        required: true
+        description: Quote execution ID
+    outputs:
+      result:
+        type: object
+        description: Full quote execution details
+
+  # ── Issuer Quotes ────────────────────────────────────────────
+  - name: create-issuer-quote
+    description: Request an issuer-level quote for mint/redeem at Paxos rate.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{asset, side, amount}"
+    outputs:
+      result:
+        type: object
+        description: "{id, price, amount, expires_at}"
+  - name: execute-issuer-quote
+    description: Execute an issuer quote.
+    inputs:
+      quote-id:
+        type: string
+        required: true
+        description: Quote ID
+      body:
+        type: object
+        required: true
+        description: Execution params
+    outputs:
+      result:
+        type: object
+        description: Executed quote
+  - name: list-issuer-quotes
+    description: List issuer quotes.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [issuer_quotes]}"
+
+  # ── Orchestration ────────────────────────────────────────────
+  - name: create-orchestration
+    description:
+      "Create an automated asset movement workflow. Mint, redeem, or transfer
+      with conversion in a single operation. USD → PYUSD → send, or receive PYUSD →
+      USD → wire out.
+
+      "
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Orchestration params (source_profile, destination, asset, amount)
+    outputs:
+      result:
+        type: object
+        description: "{id, status, steps}"
+  - name: list-orchestrations
+    description: List orchestrations with optional filters.
+    inputs:
+      status:
+        type: string
+        required: false
+        description: Filter by status
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [orchestrations]}"
+  - name: get-orchestration
+    description: Get orchestration details by ID.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Orchestration ID
+    outputs:
+      result:
+        type: object
+        description: Full orchestration with steps and status
+
+  # ── Orchestration Rules ──────────────────────────────────────
+  - name: create-orchestration-rule
+    description:
+      "Create an auto-trigger rule. When deposits arrive at a profile, automatically
+      convert and/or transfer. Set up once, runs on every deposit.
+
+      "
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Rule params (profile_id, trigger conditions, actions)
+    outputs:
+      result:
+        type: object
+        description: "{id, profile_id, rule_type}"
+  - name: list-orchestration-rules
+    description: List orchestration rules.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [rules]}"
+  - name: delete-orchestration-rule
+    description: Delete an orchestration rule.
+    inputs:
+      rule-id:
+        type: string
+        required: true
+        description: Orchestration rule ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
+
+  # ── Settlement ───────────────────────────────────────────────
+  - name: create-settlement
+    description: Create a bilateral OTC settlement transaction.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Settlement params (counterparty, asset, amount)
+    outputs:
+      result:
+        type: object
+        description: "{id, status, asset, amount}"
+  - name: list-settlements
+    description: List settlement transactions.
+    inputs:
+      status:
+        type: string
+        required: false
+        description: Filter by status
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [settlements]}"
+  - name: get-settlement
+    description: Get settlement details.
+    inputs:
+      transaction-id:
+        type: string
+        required: true
+        description: Settlement transaction ID
+    outputs:
+      result:
+        type: object
+        description: Full settlement with status and amounts
+  - name: affirm-settlement
+    description: Affirm (approve) a settlement transaction.
+    inputs:
+      transaction-id:
+        type: string
+        required: true
+        description: Settlement transaction ID
+      body:
+        type: object
+        required: true
+        description: Affirmation params
+    outputs:
+      result:
+        type: object
+        description: Affirmed settlement
+  - name: cancel-settlement
+    description: Cancel a settlement transaction.
+    inputs:
+      transaction-id:
+        type: string
+        required: true
+        description: Settlement transaction ID
+    outputs:
+      result:
+        type: object
+        description: Cancelled settlement
+
+  # ── Events ───────────────────────────────────────────────────
+  - name: list-events
+    description: List webhook/notification events.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [events]}"
+  - name: get-event
+    description: Get event details by ID.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Event ID
+    outputs:
+      result:
+        type: object
+        description: Full event details
+
+  # ── Rewards / Claims ─────────────────────────────────────────
+  - name: get-reward-details
+    description: Get stablecoin reward eligibility and details.
+    inputs:
+      profile-id:
+        type: string
+        required: false
+        description: Profile ID
+    outputs:
+      result:
+        type: object
+        description: Reward details and eligible amounts
+  - name: list-claims
+    description: List reward claims.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [claims]}"
+  - name: create-claim-schedule
+    description: Set up automated reward claiming on a schedule.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Schedule params
+    outputs:
+      result:
+        type: object
+        description: "{id, schedule, status}"
+  - name: list-claim-schedules
+    description: List claim schedules.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [claim_schedules]}"
+  - name: update-claim-schedule
+    description: Update a claim schedule.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Schedule ID
+      body:
+        type: object
+        required: true
+        description: Updated schedule params
+    outputs:
+      result:
+        type: object
+        description: Updated schedule
+  - name: delete-claim-schedule
+    description: Delete a claim schedule.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Schedule ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
+
+  # ── Payout Groups ────────────────────────────────────────────
+  - name: create-payout-group
+    description: Create a reward payout group.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: Payout group params
+    outputs:
+      result:
+        type: object
+        description: "{id, name, addresses}"
+  - name: list-payout-groups
+    description: List payout groups.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [payout_groups]}"
+  - name: update-payout-group
+    description: Update a payout group.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Payout group ID
+      body:
+        type: object
+        required: true
+        description: Updated payout group params
+    outputs:
+      result:
+        type: object
+        description: Updated payout group
+  - name: delete-payout-group
+    description: Delete a payout group.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Payout group ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
+
+  # ── Monitoring Addresses ─────────────────────────────────────
+  - name: create-monitoring-address
+    description: Register an address for stablecoin reward monitoring.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{address, crypto_network}"
+    outputs:
+      result:
+        type: object
+        description: "{id, address, crypto_network}"
+  - name: list-monitoring-addresses
+    description: List monitored addresses.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [monitoring_addresses]}"
+  - name: get-monitoring-address
+    description: Get monitoring address details.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Monitoring address ID
+    outputs:
+      result:
+        type: object
+        description: Full monitoring address details
+  - name: update-monitoring-address
+    description: Update a monitoring address.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Monitoring address ID
+      body:
+        type: object
+        required: true
+        description: Updated params
+    outputs:
+      result:
+        type: object
+        description: Updated monitoring address
+
+  # ── Reward Addresses ─────────────────────────────────────────
+  - name: create-reward-address
+    description: Register an address for reward payouts.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{address, crypto_network, profile_id}"
+    outputs:
+      result:
+        type: object
+        description: "{id, address, crypto_network}"
+  - name: list-reward-addresses
+    description: List reward payout addresses.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [reward_addresses]}"
+  - name: update-reward-address
+    description: Update a reward address.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Reward address ID
+      body:
+        type: object
+        required: true
+        description: Updated params
+    outputs:
+      result:
+        type: object
+        description: Updated reward address
+  - name: delete-reward-address
+    description: Delete a reward address.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Reward address ID
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
+
+  # ── Payments / Statements ────────────────────────────────────
+  - name: list-payments
+    description: List payment records.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [payments]}"
+  - name: list-statements
+    description: List account statements.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [statements]}"
+
+  # ── Tax ──────────────────────────────────────────────────────
+  - name: list-tax-forms
+    description: List tax forms (1099, etc.).
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [tax_forms]}"
+  - name: list-tax-form-revisions
+    description: List tax form revisions.
+    inputs:
+      limit:
+        type: string
+        required: false
+        description: Page size
+      cursor:
+        type: string
+        required: false
+        description: Pagination cursor
+    outputs:
+      result:
+        type: object
+        description: "{items: [tax_form_revisions]}"
+
+  # ── API Credentials ──────────────────────────────────────────
+  - name: list-api-credentials
+    description: List API credentials (client IDs).
+    outputs:
+      result:
+        type: object
+        description: "{items: [credentials]}"
+  - name: delete-api-credential
+    description: Delete an API credential.
+    inputs:
+      id:
+        type: string
+        required: true
+        description: Client ID to delete
+    outputs:
+      result:
+        type: object
+        description: Deletion confirmation
+
+  # ── Sandbox Utilities ────────────────────────────────────────
+  - name: sandbox-deposit
+    description: Simulate a crypto deposit in sandbox.
+    inputs:
+      profile-id:
+        type: string
+        required: true
+        description: Profile ID
+      body:
+        type: object
+        required: true
+        description: "{asset, amount, crypto_network}"
+    outputs:
+      result:
+        type: object
+        description: Simulated deposit
+  - name: sandbox-fiat-deposit
+    description: Simulate a fiat deposit in sandbox.
+    inputs:
+      body:
+        type: object
+        required: true
+        description: "{profile_id, amount, asset}"
+    outputs:
+      result:
+        type: object
+        description: Simulated fiat deposit
