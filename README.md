@@ -2,6 +2,8 @@
 
 Crypto brokerage, stablecoin operations, and treasury management via the Paxos API.
 
+> **KYB Required:** Paxos API access is gated behind [Know Your Business (KYB)](https://dashboard.paxos.com) verification. You must complete KYB onboarding through the [Paxos partner portal](https://dashboard.paxos.com) before any commands will work. Without KYB approval, API calls will return authorization errors.
+
 ## Quick Start
 
 ```yaml
