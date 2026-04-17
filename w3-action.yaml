@@ -1,10 +1,8 @@
 kind: integration
-name:
-  Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading, settlement,
-  and orchestration
+name: Paxos
 version: 0.1.0
 repo: w3-io/w3-paxos-action
-partner: Paxos
+partner: paxos
 description:
   Institutional crypto — stablecoins (PYUSD/USDP/USDG), custody, trading,
   settlement, and orchestration
