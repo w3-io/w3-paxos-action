@@ -767,6 +767,7 @@ commands:
   # ── Market Data ──────────────────────────────────────────────
   - name: list-markets
     description: List available trading pairs (BTC_USD, ETH_USD, etc.).
+    inputs: {}
     outputs:
       result:
         type: object
@@ -829,12 +830,14 @@ commands:
         description: "{items: [{price, timestamp}]}"
   - name: list-prices
     description: Get current prices across all markets.
+    inputs: {}
     outputs:
       result:
         type: object
         description: "{items: [{market, price, timestamp}]}"
   - name: list-tickers
     description: Get 24-hour ticker stats across all markets.
+    inputs: {}
     outputs:
       result:
         type: object
@@ -1537,6 +1540,7 @@ commands:
   # ── API Credentials ──────────────────────────────────────────
   - name: list-api-credentials
     description: List API credentials (client IDs).
+    inputs: {}
     outputs:
       result:
         type: object
